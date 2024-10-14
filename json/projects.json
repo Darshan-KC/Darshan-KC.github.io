@@ -1,0 +1,63 @@
+[
+    {
+      "slug":"grow",
+      "title": "Grow",
+      "description": "Grow is a learning website in which admin adds teachers, and assigns their respective courses. Students can register and enroll in the courses, download the notes.",
+      "technologiesUsed": ["Laravel", "PHP", "MySQL", "Bootstrap", "JS"],
+      "country":"Nepal",
+      "image":"/assets/img/projects/grow.ico",
+      "achievements": "It was my first big project. And it was the project from where I understood Laravel deeply.",
+      "link": "https://example.com/grow"
+    },
+    {
+      "slug":"ams",
+      "title": "AMS",
+      "description": "AMS is an Attendance Management Project in which a company or organization owner creates his/her account and registers his/her company or organization. Once the request is approved by the super admin, s/he can add his/her employees or teams and assign their roles and perform their respective tasks. S/he can download and manage the attendance report.",
+      "technologiesUsed": ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript", "Git", "Google SMTP"],
+      "country":"Nepal",
+      "image":"/assets/img/projects/ams.jpeg",
+      "achievements": "Understood about software as a service (SaaS).",
+      "link": "https://example.com/ams"
+    },
+    {
+      "slug":"bhansha",
+      "title": "Bhansha",
+      "description": "Bhansha is a restaurant management software. In this project, the restaurant owner adds products to his/her site. Customers register and order food from the site and proceed with payment. Once the order is placed, admin checks and verifies the order and proceeds for delivery. Customers can add food to the cart, and also check their order history.",
+      "technologiesUsed": ["PHP", "Laravel", "MySQL", "Bootstrap", "jQuery", "Git", "Payment Integration"],
+      "country":"Nepal",
+      "image":"/assets/img/projects/bhansha.jpeg",
+      "achievements": "Understood the payment integration process.",
+      "link": "https://example.com/bhansha"
+    },
+    {
+      "slug":"dam",
+      "title": "Dragon Alliance Metal",
+      "description": "Sacred Valley Treks is a website that is used to manage trekking and tours. Customers request for trekking and tour packages and the admin contacts the user after they place their request. Admin adds the trekking and tour data on the website, manages customer requests.",
+      "technologiesUsed": ["PHP", "Laravel", "MySQL", "Git", "Bootstrap"],
+      "country":"Malysia",
+      "image":"/assets/img/projects/dam.png",
+      "achievements": "I have done the backend part of this project. Working on this project helped me to improve and further gain knowledge of API integration.",
+      "link": "https://example.com/sacred-valley-treks"
+    },
+    {
+      "slug":"sacred-valley-treks",
+      "title": "Sacred Valley Treks",
+      "description": "Sacred Valley Treks is a website that is used to manage trekking and tours. Customers request for trekking and tour packages and the admin contacts the user after they place their request. Admin adds the trekking and tour data on the website, manages customer requests.",
+      "technologiesUsed": ["PHP", "Laravel", "API", "MySQL", "Git", "Bootstrap", "Postman"],
+      "country":"Nepal",
+      "image":"/assets/img/projects/sacred.png",
+      "achievements": "I have done the backend part of this project. Working on this project helped me to improve and further gain knowledge of API integration.",
+      "link": "https://example.com/sacred-valley-treks"
+    },
+    {
+      "slug":"silambam",
+      "title": "Silambam",
+      "description": "Silambam is the game report management system. In this, admin registers the player, judge, campaign, and group, and assigns judge and player to the group. Judge logs in from the mobile application and assigns marks to the player based on their performance. After the judge assigns their marks to the player, admin can view the full detailed marks report.",
+      "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Sanctum API Auth", "Postman", "Git"],
+      "country":"Malysia",
+      "image":"/assets/img/projects/silambam.png",
+      "achievements": "I have done the backend part in this project. I understood the configuration to connect mobile apps with backend, API Authentication.",
+      "link": "https://example.com/silambam"
+    }
+  ]
+  
