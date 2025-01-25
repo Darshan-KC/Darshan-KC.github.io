@@ -7,7 +7,7 @@
       "country":"Nepal",
       "image":"/assets/img/projects/grow.ico",
       "achievements": "It was my first big project. And it was the project from where I understood Laravel deeply.",
-      "link": "https://example.com/grow"
+      "link": "https://github.com/Darshan-KC/Grow"
     },
     {
       "slug":"ams",
@@ -17,7 +17,7 @@
       "country":"Nepal",
       "image":"/assets/img/projects/ams.jpeg",
       "achievements": "Understood about software as a service (SaaS).",
-      "link": "https://example.com/ams"
+      "link": "https://github.com/Darshan-KC/Attendance-Management-System"
     },
     {
       "slug":"bhansha",
@@ -27,7 +27,7 @@
       "country":"Nepal",
       "image":"/assets/img/projects/bhansha.jpeg",
       "achievements": "Understood the payment integration process.",
-      "link": "https://example.com/bhansha"
+      "link": "https://github.com/Darshan-KC/Bhansha"
     },
     {
       "slug":"dam",
@@ -37,7 +37,7 @@
       "country":"Malysia",
       "image":"/assets/img/projects/dam.png",
       "achievements": "I have done the backend part of this project. Working on this project helped me to improve and further gain knowledge of API integration.",
-      "link": "https://example.com/sacred-valley-treks"
+      "link": "https://dametals.my/"
     },
     {
       "slug":"sacred-valley-treks",
@@ -47,7 +47,7 @@
       "country":"Nepal",
       "image":"/assets/img/projects/sacred.png",
       "achievements": "I have done the backend part of this project. Working on this project helped me to improve and further gain knowledge of API integration.",
-      "link": "https://example.com/sacred-valley-treks"
+      "link": "https://sacredvalleytreks.com.np/"
     },
     {
       "slug":"silambam",
