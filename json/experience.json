@@ -1,27 +1,28 @@
 [
-    {
-      "jobTitle": "Intern (Full Stack Web Developer in PHP Laravel)",
-      "company": "XDezo Technology",
-      "location": "Ratna Chowk, Pokhara-7, Pokhara 33700",
-      "dates": "July 2023 - January 2024",
-      "responsibilities": [
-        "Developed the given website in time.",
-        "Guided the team as the team leader.",
-        "Understood the development process of web development.",
-        "Gained hands-on practice in many projects, understood frontend and backend technologies, understood the workflow."
-      ]
-    },
-    {
-      "jobTitle": "PHP, Laravel Developer",
-      "company": "Websoft Technology Nepal",
-      "location": "Srijana Chowk, Pokhara-8, Pokhara 33700",
-      "dates": "January 2024 - Present",
-      "responsibilities": [
-        "Developing and testing websites.",
-        "Guiding interns.",
-        "Developing APIs for mobile apps and websites.",
-        "Gained more knowledge in working with teams, understood the workflow, understood Agile development software methods."
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "jobTitle": "PHP, Laravel Intern",
+    "company": "XDezo Technology",
+    "location": "Ratna Chowk, Pokhara-7, Pokhara 33700",
+    "dates": "July 2023 - January 2024",
+    "responsibilities": [
+      "Developed the given website in time.",
+      "Guided the team as the team leader.",
+      "Understood the development process of web development.",
+      "Gained hands-on practice in many projects, understood frontend and backend technologies, understood the workflow."
+    ]
+  },
+  {
+    "id": 2,
+    "jobTitle": "Mid PHP, Laravel Developer",
+    "company": "Websoft Technology Nepal",
+    "location": "Srijana Chowk, Pokhara-8, Pokhara 33700",
+    "dates": "January 2024 - Present",
+    "responsibilities": [
+      "Developing and testing websites.",
+      "Guiding interns.",
+      "Developing APIs for mobile apps and websites.",
+      "Gained more knowledge in working with teams, understood the workflow, understood Agile development software methods."
+    ]
+  }
+]

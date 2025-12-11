@@ -1,29 +1,40 @@
-
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #191a1b; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #22262a; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #6305bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+:root {
+  --background-color: #ffffff;
+  /* Background color for the entire website, including individual sections */
+  --default-color: #191a1b;
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #22262a;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #6305bb;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
-  --nav-hover-color: #6305bb; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #6305bb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #45505b;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #6305bb;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #212529;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #6305bb;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -652,108 +663,117 @@ section,
 /*--------------------------------------------------------------
 # Skills Section
 --------------------------------------------------------------*/
-/* .skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
-}
-
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--accent-color);
-} */
-
 .skills {
   background-color: var(--background-color);
   padding: 60px 0;
 }
 
 .skills-content {
-  margin-bottom: 30px; /* Add space between rows */
+  margin-bottom: 30px;
+  /* Space between rows */
 }
 
+/* Skill Cards */
 .skills-item {
   background-color: var(--surface-color);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .skills-item:hover {
   transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Skill Category Heading */
 .skills-item h3.skill-category {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
   color: var(--accent-color);
   text-transform: uppercase;
-  font-weight: bold;
-  text-align: center; /* Center-aligning headings */
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 8px;
 }
 
+/* Skill List */
 .skills-item ul {
   padding-left: 0;
   margin: 0;
-  flex-grow: 1; /* Ensures content expands to fill the available space */
+  flex-grow: 1;
+  /* Fill available space */
+  max-height: 320px;
+  /* Optional: limits card height */
+  overflow-y: auto;
+  /* Scroll if too many items */
 }
 
+/* Individual Skill Item */
 .skills-item ul li {
   list-style: none;
-  padding: 5px 0;
+  padding: 6px 0;
   font-size: 1.1rem;
   color: var(--default-color);
   display: flex;
   align-items: center;
+  transition: color 0.3s ease;
 }
 
+/* Skill Icon */
 .skills-item ul li i {
   color: var(--accent-color);
   padding-right: 10px;
+  font-size: 1.2rem;
 }
 
-.skill:hover {
+/* Hover effect for skill text */
+.skills-item ul li:hover {
   color: var(--accent-color);
 }
 
-/* Flexbox to align Soft Skills and Languages height */
+/* Equal height for Soft Skills and Languages */
 .d-flex.align-items-stretch .skills-item {
   display: flex;
   flex-direction: column;
 }
 
+/* Scrollbar styling for overflowing skill lists */
+.skills-item ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.skills-item ul::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+}
+
+.skills-item ul::-webkit-scrollbar-track {
+  background-color: var(--surface-color);
+}
+
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .skills-item {
-    margin-bottom: 30px;
+@media (max-width: 992px) {
+  .skills-item h3.skill-category {
+    font-size: 1.4rem;
+  }
+
+  .skills-item ul li {
+    font-size: 1rem;
   }
 }
+
+@media (max-width: 768px) {
+  .skills-item {
+    margin-bottom: 25px;
+  }
+}
+
 
 
 /*--------------------------------------------------------------
@@ -927,6 +947,182 @@ section,
   transform: scale(1.1);
 }
 
+/* Modern Portfolio Card Styling */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.portfolio-item:hover .portfolio-info {
+  opacity: 1;
+}
+
+.badge-level {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.badge-junior {
+  background-color: #6c757d;
+}
+
+/* gray */
+.badge-mid {
+  background-color: #0d6efd;
+}
+
+/* blue */
+.badge-senior {
+  background-color: #198754;
+}
+
+/* green */
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.tech-item-small {
+  background: #fff;
+  color: #000;
+  padding: 3px 6px;
+  font-size: 0.7rem;
+  border-radius: 5px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 350px;
+  /* Adjust height */
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 15px;
+  overflow-y: auto;
+  /* Scroll if content exceeds height */
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(100%);
+}
+
+.portfolio-item:hover .portfolio-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio-info h4 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.portfolio-info p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.portfolio-info ul {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  padding-left: 15px;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.tech-item-small {
+  background: #fff;
+  color: #333;
+  padding: 3px 7px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.badge-level {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.badge-junior {
+  background-color: #6c757d;
+}
+
+/* gray */
+.badge-associate {
+  background-color: #fd7e14;
+}
+
+/* orange */
+.badge-mid {
+  background-color: #0d6efd;
+}
+
+/* blue */
+.badge-senior {
+  background-color: #198754;
+}
+
+/* green */
+
+
 /*--------------------------------------------------------------
 # project description Section
 --------------------------------------------------------------*/
@@ -960,7 +1156,8 @@ section,
   font-weight: 600;
 }
 
-.project-description, .project-country {
+.project-description,
+.project-country {
   font-size: 1.1rem;
   color: var(--default-color);
   margin-bottom: 10px;
@@ -1615,8 +1812,15 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# Starter Section
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# Utility Section
+--------------------------------------------------------------*/
+.text-primary {
+  color: var(--accent-color);
 }

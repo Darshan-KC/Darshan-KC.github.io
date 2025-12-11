@@ -1,48 +1,76 @@
 $(document).ready(function () {
-  // Load education data
+  // Load education
   $.getJSON("json/education.json", function (data) {
     let educationHTML = "";
     data.forEach(function (item) {
-      educationHTML += `<div class="education-item">
-                        <h3>${item.degree}</h3>
-                        <h4>${item.university}</h4>
+      educationHTML += `<div class="resume-item">
+                        <h4>${item.degree}</h4>
+                        <h5>${item.graduationDate}</h5>
+                        <p><em>${item.university}</em></p>
                         <p>${item.fieldOfStudy}</p>
-                        <p>Expected Graduation: ${item.graduationDate}</p>
-                    </div>`;
+                      </div>`;
     });
     $("#education").html(educationHTML);
   });
 
-  // Load experience data
+  // Load work experience
   $.getJSON("json/experience.json", function (data) {
-    let experienceHTML = "";
+    // Sort by id descending
+    data.sort((a, b) => b.id - a.id);
+
+    let workHTML = "";
     data.forEach(function (item) {
-      experienceHTML += `<div class="experience-item">
-                        <h3>${item.jobTitle}</h3>
-                        <h4>${item.company}</h4>
-                        <p>${item.location}</p>
-                        <p>${item.dates}</p>
-                        <ul>`;
+      workHTML += `<div class="resume-item">
+                   <h4>${item.jobTitle}</h4>
+                   <h5>${item.dates}</h5>
+                   <p><em>${item.company}${
+        item.location ? ", " + item.location : ""
+      }</em></p>
+                   <ul>`;
       item.responsibilities.forEach(function (resp) {
-        experienceHTML += `<li>${resp}</li>`;
+        workHTML += `<li>${resp}</li>`;
       });
-      experienceHTML += `</ul></div>`;
+      workHTML += `</ul></div>`;
     });
-    $("#experience").html(experienceHTML);
+
+    $("#work-experience").html(workHTML);
+  });
+
+  // Load community experience
+  $.getJSON("json/community.json", function (data) {
+    // Sort by id descending
+    data.sort((a, b) => b.id - a.id);
+
+    let communityHTML = `<div class="row">`;
+    data.forEach(function (item, index) {
+      communityHTML += `<div class="col-lg-6 col-md-12 mb-4">
+                        <div class="resume-item">
+                          <h4>${item.role}</h4>
+                          <h5>${item.dates}</h5>
+                          <p><em>${item.organization}</em></p>
+                          <ul>`;
+      item.responsibilities.forEach(function (resp) {
+        communityHTML += `<li>${resp}</li>`;
+      });
+      communityHTML += `</ul></div></div>`;
+    });
+    communityHTML += `</div>`;
+
+    $("#community-experience").html(communityHTML);
   });
 
   // Load skills data
   $.getJSON("json/skills.json", function (data) {
     let skillsHTML = "";
 
-    // First Row: Soft Skills and Languages with equal height
+    // First Row: Soft Skills and Languages
     skillsHTML += `<div class="row d-flex align-items-stretch">`;
 
     // Soft Skills
     skillsHTML += `<div class="col-md-6 mb-4 d-flex">
-      <div class="skills-item flex-fill" data-aos="fade-up" data-aos-delay="200">
-        <h3 class="skill-category">Soft Skills</h3>
-        <ul class="list-unstyled">`;
+    <div class="skills-item flex-fill" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="skill-category">Soft Skills</h3>
+      <ul class="list-unstyled">`;
     data.softSkills.forEach(function (skill) {
       skillsHTML += `<li class="skill"><i class="bi bi-check-circle-fill"></i> ${skill}</li>`;
     });
@@ -50,35 +78,30 @@ $(document).ready(function () {
 
     // Languages
     skillsHTML += `<div class="col-md-6 mb-4 d-flex">
-      <div class="skills-item flex-fill" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="skill-category">Languages</h3>
-        <ul class="list-unstyled">`;
+    <div class="skills-item flex-fill" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="skill-category">Languages</h3>
+      <ul class="list-unstyled">`;
     data.languages.forEach(function (language) {
       skillsHTML += `<li class="skill"><i class="bi bi-check-circle-fill"></i> ${language}</li>`;
     });
     skillsHTML += `</ul></div></div>`;
+    skillsHTML += `</div>`; // Close first row
 
-    skillsHTML += `</div>`; // Close the first row
-
-    // Second Row: Technical Skills, broken into multiple columns for larger screens
+    // Second Row: Technical Skills
     skillsHTML += `<div class="row">`;
-    skillsHTML += `<div class="col-md-12 mb-4">
-      <div class="skills-item" data-aos="fade-up" data-aos-delay="400">
-        <h3 class="skill-category">Technical Skills</h3>
-        <div class="row">`; // Start new row for columns
-
-    // Break technical skills into 2 or 3 columns for larger screens
-    data.technicalSkills.forEach(function (skill, index) {
-      if (index % 6 === 0) {
-        skillsHTML += `<div class="col-lg-4 col-md-6"><ul class="list-unstyled">`; // New column every 6 items
-      }
-      skillsHTML += `<li class="skill"><i class="bi bi-check-circle-fill"></i> ${skill}</li>`;
-      if (index % 6 === 5 || index === data.technicalSkills.length - 1) {
-        skillsHTML += `</ul></div>`; // Close column after 6 items
-      }
+    Object.keys(data.technicalSkills).forEach(function (category, catIndex) {
+      skillsHTML += `<div class="col-md-6 col-lg-4 mb-4">
+      <div class="skills-item" data-aos="fade-up" data-aos-delay="${
+        400 + catIndex * 100
+      }">
+        <h3 class="skill-category">${category}</h3>
+        <ul class="list-unstyled">`;
+      data.technicalSkills[category].forEach(function (skill) {
+        skillsHTML += `<li class="skill"><i class="bi bi-check-circle-fill"></i> ${skill}</li>`;
+      });
+      skillsHTML += `</ul></div></div>`;
     });
-
-    skillsHTML += `</div></div></div></div>`; // Close row and skill-item divs
+    skillsHTML += `</div>`; // Close technical skills row
 
     $("#skills-list").html(skillsHTML);
   }).fail(function (jqxhr, textStatus, error) {
@@ -104,44 +127,83 @@ $(document).ready(function () {
     let countryFiltersHTML = `<li data-filter="*" class="filter-active">All</li>`;
     let uniqueCountries = [];
 
-    // Collect unique countries for the filter buttons
-    data.forEach(function (item) {
-      if (!uniqueCountries.includes(item.country)) {
-        uniqueCountries.push(item.country);
-      }
-    });
+    // Sort by id descending
+    data.sort((a, b) => b.id - a.id);
 
-    // Generate country filter buttons dynamically
-    uniqueCountries.forEach(function (country) {
+    data.forEach((item) => {
+      if (!uniqueCountries.includes(item.country))
+        uniqueCountries.push(item.country);
+    });
+    uniqueCountries.forEach((country) => {
       countryFiltersHTML += `<li data-filter=".filter-${country}">${country}</li>`;
     });
     $("#countryFilters").html(countryFiltersHTML);
 
-    // Generate portfolio items dynamically
-    data.forEach(function (item) {
-      portfolioHTML += `<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-${item.country}">
-                          <div class="portfolio-content h-100">
-                            <img src="${item.image}" class="img-fluid" alt="${item.title}">
-                            <div class="portfolio-info">
-                              <h4><a href="#" class="country-filter" data-country=".filter-${item.country}"  style='color:white;'>${item.country}</a></h4>
-                              <p>${item.title}</p>
-                              <a href="${item.image}" title="${item.title}" target="_blank" data-gallery="portfolio-gallery-${item.title}" class="glightbox preview-link">
-                                <i class="bi bi-zoom-in"></i></a>
-                              <a href="project-details.html?slug=${item.slug}" title="More Details" class="details-link">
-                                <i class="bi bi-link-45deg"></i></a>
-                            </div>
-                          </div>
-                        </div>`;
+    const levelMap = {
+      1: "badge-junior",
+      2: "badge-mid",
+      3: "badge-mid",
+      4: "badge-senior",
+    };
+
+    data.forEach((item) => {
+      let badgeClass =
+        item.level === 1
+          ? "badge-junior"
+          : item.level === 2
+          ? "badge-associate"
+          : item.level === 3
+          ? "badge-mid"
+          : item.level === 4
+          ? "badge-senior"
+          : "badge-junior";
+
+      let badgeText =
+        item.level === 1
+          ? "Junior"
+          : item.level === 2
+          ? "Associate"
+          : item.level === 3
+          ? "Mid"
+          : item.level === 4
+          ? "Senior"
+          : "Junior";
+
+      portfolioHTML += `
+      <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-${
+        item.country
+      }">
+        <img src="${item.image}" alt="${item.title}">
+        <span class="badge-level ${badgeClass}">${badgeText}</span>
+        <div class="portfolio-info">
+          <h4 class="text-primary">${item.title}</h4>
+          <p>${item.type} | ${item.role}</p>
+          <strong>Key Features:</strong>
+          <ul>
+            ${item.features.map((f) => `<li>${f}</li>`).join("")}
+          </ul>
+          <div class="tech-list">
+            ${item.technologiesUsed
+              .map((t) => `<span class="tech-item-small text-dark">${t}</span>`)
+              .join("")}
+          </div>
+          <div class="text-center">
+            <a href="project-details.html?slug=${
+              item.slug
+            }" class="btn btn-outline-light btn-lg px-4 py-2 mt-2" target="_blank">View Details</a>
+          </div>
+        </div>
+      </div>
+    `;
     });
+
     $("#projectContainer").html(portfolioHTML);
 
-    // Initialize isotope layout for filtering
     var $grid = $(".isotope-container").isotope({
       itemSelector: ".portfolio-item",
       layoutMode: "fitRows",
     });
 
-    // Filter portfolio on filter button click
     $(".isotope-filters li").on("click", function () {
       $(".isotope-filters li").removeClass("filter-active");
       $(this).addClass("filter-active");
@@ -149,29 +211,9 @@ $(document).ready(function () {
       $grid.isotope({ filter: filterValue });
     });
 
-    // Use imagesLoaded to wait for images to fully load before triggering layout
     $grid.imagesLoaded().progress(function () {
-      $grid.isotope("layout"); // Trigger Isotope layout recalculation after each image loads
+      $grid.isotope("layout");
     });
-
-    // When filter buttons are clicked, filter the items
-    $(".portfolio-filters li").on("click", function () {
-      $(".portfolio-filters li").removeClass("filter-active");
-      $(this).addClass("filter-active");
-      var filterValue = $(this).attr("data-filter");
-      $grid.isotope({ filter: filterValue });
-    });
-
-    // Filter portfolio by clicking on the country name in the portfolio item
-    // $(document).on("click", ".country-filter", function (e) {
-    //   e.preventDefault();
-    //   var countryFilter = $(this).data("country");
-    //   $grid.isotope({ filter: countryFilter });
-    //   $(".isotope-filters li").removeClass("filter-active");
-    //   $(`.isotope-filters li[data-filter="${countryFilter}"]`).addClass(
-    //     "filter-active"
-    //   );
-    // });
   });
 
   // Load mentorship data

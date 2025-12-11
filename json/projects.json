@@ -1,63 +1,306 @@
 [
-    {
-      "slug":"grow",
-      "title": "Grow",
-      "description": "Grow is a learning website in which admin adds teachers, and assigns their respective courses. Students can register and enroll in the courses, download the notes.",
-      "technologiesUsed": ["Laravel", "PHP", "MySQL", "Bootstrap", "JS"],
-      "country":"Nepal",
-      "image":"/assets/img/projects/grow.ico",
-      "achievements": "It was my first big project. And it was the project from where I understood Laravel deeply.",
-      "link": "https://github.com/Darshan-KC/Grow"
-    },
-    {
-      "slug":"ams",
-      "title": "AMS",
-      "description": "AMS is an Attendance Management Project in which a company or organization owner creates his/her account and registers his/her company or organization. Once the request is approved by the super admin, s/he can add his/her employees or teams and assign their roles and perform their respective tasks. S/he can download and manage the attendance report.",
-      "technologiesUsed": ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript", "Git", "Google SMTP"],
-      "country":"Nepal",
-      "image":"/assets/img/projects/ams.jpeg",
-      "achievements": "Understood about software as a service (SaaS).",
-      "link": "https://github.com/Darshan-KC/Attendance-Management-System"
-    },
-    {
-      "slug":"bhansha",
-      "title": "Bhansha",
-      "description": "Bhansha is a restaurant management software. In this project, the restaurant owner adds products to his/her site. Customers register and order food from the site and proceed with payment. Once the order is placed, admin checks and verifies the order and proceeds for delivery. Customers can add food to the cart, and also check their order history.",
-      "technologiesUsed": ["PHP", "Laravel", "MySQL", "Bootstrap", "jQuery", "Git", "Payment Integration"],
-      "country":"Nepal",
-      "image":"/assets/img/projects/bhansha.jpeg",
-      "achievements": "Understood the payment integration process.",
-      "link": "https://github.com/Darshan-KC/Bhansha"
-    },
-    {
-      "slug":"dam",
-      "title": "Dragon Alliance Metal",
-      "description": "Sacred Valley Treks is a website that is used to manage trekking and tours. Customers request for trekking and tour packages and the admin contacts the user after they place their request. Admin adds the trekking and tour data on the website, manages customer requests.",
-      "technologiesUsed": ["PHP", "Laravel", "MySQL", "Git", "Bootstrap"],
-      "country":"Malysia",
-      "image":"/assets/img/projects/dam.png",
-      "achievements": "I have done the backend part of this project. Working on this project helped me to improve and further gain knowledge of API integration.",
-      "link": "https://dametals.my/"
-    },
-    {
-      "slug":"sacred-valley-treks",
-      "title": "Sacred Valley Treks",
-      "description": "Sacred Valley Treks is a website that is used to manage trekking and tours. Customers request for trekking and tour packages and the admin contacts the user after they place their request. Admin adds the trekking and tour data on the website, manages customer requests.",
-      "technologiesUsed": ["PHP", "Laravel", "API", "MySQL", "Git", "Bootstrap", "Postman"],
-      "country":"Nepal",
-      "image":"/assets/img/projects/sacred.png",
-      "achievements": "I have done the backend part of this project. Working on this project helped me to improve and further gain knowledge of API integration.",
-      "link": "https://sacredvalleytreks.com.np/"
-    },
-    {
-      "slug":"silambam",
-      "title": "Silambam",
-      "description": "Silambam is the game report management system. In this, admin registers the player, judge, campaign, and group, and assigns judge and player to the group. Judge logs in from the mobile application and assigns marks to the player based on their performance. After the judge assigns their marks to the player, admin can view the full detailed marks report.",
-      "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Sanctum API Auth", "Postman", "Git"],
-      "country":"Malysia",
-      "image":"/assets/img/projects/silambam.png",
-      "achievements": "I have done the backend part in this project. I understood the configuration to connect mobile apps with backend, API Authentication.",
-      "link": "https://example.com/silambam"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "slug": "grow",
+    "title": "Grow",
+    "type": "Sample Project",
+    "country": "Nepal",
+    "level":1,
+    "image": "/assets/img/projects/grow.ico",
+    "role": "Fullstack Developer",
+    "teamSize": 3,
+    "description": "Grow is a learning management platform where teachers can manage courses and students can enroll, access lessons, and download study materials. This project helped me build a strong foundation in Laravel, MVC structure, routing, and fullstack application flow.",
+    "responsibilities": [
+      "Developed fullstack modules including authentication, course CRUD, and enrollment logic",
+      "Implemented UI using Bootstrap and integrated dynamic components with JavaScript",
+      "Designed database schema for courses, modules, teachers, and students",
+      "Handled file downloads and user access control"
+    ],
+    "features": [
+      "Course and module management",
+      "Teacher assignment system",
+      "Student enrollment flow",
+      "Downloadable notes and resources",
+      "User roles and authentication"
+    ],
+    "achievements": "This was the project where I understood Laravel deeply and learned how to structure a fullstack application from scratch.",
+    "technologiesUsed": ["Laravel", "PHP", "MySQL", "Bootstrap", "JS"],
+    "link": "https://github.com/Darshan-KC/Grow"
+  },
+  {
+    "id": 2,
+    "slug": "ams",
+    "title": "AMS",
+    "type": "Sample Project",
+    "country": "Nepal",
+    "level":1,
+    "image": "/assets/img/projects/ams.jpeg",
+    "role": "Fullstack Developer",
+    "teamSize": 2,
+    "description": "AMS is an Attendance Management System designed for companies to track employee attendance efficiently. Users can manage teams, assign roles, and export attendance reports in multiple formats.",
+    "responsibilities": [
+      "Developed core backend modules including employee CRUD, team assignment, and attendance tracking",
+      "Implemented export reports in PDF and Excel format",
+      "Created responsive UI dashboards using Bootstrap",
+      "Handled authentication and role-based access control"
+    ],
+    "features": [
+      "SaaS architecture for multi-company management",
+      "Attendance export in multiple formats",
+      "Employee and team management",
+      "Role-based access control"
+    ],
+    "achievements": "Gained practical understanding of SaaS systems and multi-tenant architecture.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "Bootstrap", "JS", "Git", "Google SMTP"],
+    "link": "https://github.com/Darshan-KC/Attendance-Management-System"
+  },
+  {
+    "id": 3,
+    "slug": "bhansha",
+    "title": "Bhansha",
+    "type": "Sample Project",
+    "country": "Nepal",
+    "level":1,
+    "image": "/assets/img/projects/bhansha.jpeg",
+    "role": "Fullstack Developer",
+    "teamSize": 3,
+    "description": "Bhansha is a restaurant management system where customers can browse products, place orders, and pay online, while admins manage menu items and verify orders.",
+    "responsibilities": [
+      "Implemented fullstack CRUD for products, orders, and customers",
+      "Integrated payment gateway and cart system",
+      "Built order history and admin verification workflows",
+      "Created responsive frontend with Bootstrap and jQuery"
+    ],
+    "features": [
+      "Food ordering and cart system",
+      "Payment gateway integration",
+      "Order history and management",
+      "Admin verification of orders"
+    ],
+    "achievements": "Gained experience integrating payments and building fullstack web applications.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "Bootstrap", "jQuery", "Git", "Payment Integration"],
+    "link": "https://github.com/Darshan-KC/Bhansha"
+  },
+  {
+    "id": 4,
+    "slug": "dam",
+    "title": "Dragon Alliance Metal (DAM)",
+    "type": "Company Project",
+    "country": "Malaysia",
+    "level":1,
+    "image": "/assets/img/projects/dam.png",
+    "role": "Backend Developer",
+    "teamSize": 2,
+    "description": "DAM is a company website to manage products and customer requests. The system allows admins to manage content and communicate with customers through emails.",
+    "responsibilities": [
+      "Developed backend CRUD operations for products and customer requests",
+      "Implemented emailing notifications for customer inquiries",
+      "Designed database models and relationships",
+      "Integrated admin dashboard for easy management"
+    ],
+    "features": [
+      "CRUD management for products and orders",
+      "Email notifications to customers",
+      "Admin dashboard for content management"
+    ],
+    "achievements": "Strengthened my skills in backend development and API integration for live company projects.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "Git", "Bootstrap"],
+    "link": "https://dametals.my/"
+  },
+  {
+    "id": 5,
+    "slug": "graceintl",
+    "title": "Grace International",
+    "type": "Freelance Project",
+    "country": "Dubai",
+    "level":1,
+    "image": "/assets/img/projects/grace.png",
+    "role": "Fullstack Developer",
+    "teamSize": 1,
+    "description": "Grace International is a consultancy project where clients can book appointments and admins can manage consultancy records efficiently.",
+    "responsibilities": [
+      "Developed CRUD operations for consultancy records",
+      "Implemented appointment booking system",
+      "Created responsive frontend using jQuery and Bootstrap",
+      "Managed database schema for clients and appointments"
+    ],
+    "features": [
+      "Consultancy record management",
+      "Appointment booking system",
+      "Responsive UI for users and admin"
+    ],
+    "achievements": "Gained experience in freelance development and end-to-end project handling.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Git"],
+    "link": "https://graceintlgroup.ae/"
+  },
+  {
+    "id": 6,
+    "slug": "sacred-valley-treks",
+    "title": "Sacred Valley Treks",
+    "type": "Company Project",
+    "country": "Nepal",
+    "level":2,
+    "image": "/assets/img/projects/sacred.png",
+    "role": "Backend & API Developer",
+    "teamSize": 2,
+    "description": "Sacred Valley Treks is a tour and trekking management website. Admins can manage trekking packages, and customers can submit requests for tours.",
+    "responsibilities": [
+      "Developed backend APIs for tours and trekking packages",
+      "Managed database design for bookings and requests",
+      "Handled admin CRUD operations and user authentication",
+      "Integrated API for customer requests management"
+    ],
+    "features": [
+      "Tour and trekking package management",
+      "Customer request management",
+      "Backend API development",
+      "Admin dashboard for data management"
+    ],
+    "achievements": "Enhanced my skills in backend development and API integration for live client projects.",
+    "technologiesUsed": ["PHP", "Laravel", "API", "MySQL", "Git", "Bootstrap", "Postman"],
+    "link": "https://sacredvalleytreks.com.np/"
+  },
+  {
+    "id": 7,
+    "slug": "silambam",
+    "title": "Silambam",
+    "type": "Company Project",
+    "country": "Malaysia",
+    "level":2,
+    "image": "/assets/img/projects/silambam.png",
+    "role": "Fullstack Developer",
+    "teamSize": 3,
+    "description": "Silambam is a game report management system where judges can assign marks to players and admins can generate detailed reports.",
+    "responsibilities": [
+      "Developed backend modules for player, judge, and group management",
+      "Integrated API authentication for mobile app judges",
+      "Built admin dashboard to view detailed score reports",
+      "Handled database design and relationships"
+    ],
+    "features": [
+      "Player, judge, and group management",
+      "Score assignment via mobile API",
+      "Detailed reports for admins"
+    ],
+    "achievements": "Learned API authentication, mobile integration, and ERP-like backend systems.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Sanctum API Auth", "Postman", "Git"],
+    "link": "https://silambammalaysia.org/"
+  },
+  {
+    "id": 8,
+    "slug": "gyhealthcare",
+    "title": "GY Health Care",
+    "type": "Company Project",
+    "country": "Malaysia",
+    "level":2,
+    "image": "/assets/img/projects/gyhealthcare.png",
+    "role": "Fullstack Developer",
+    "teamSize": 2,
+    "description": "GY Health Care is a simple web application for healthcare management, enabling clients to manage records, appointments, and resources.",
+    "responsibilities": [
+      "Built fullstack modules for managing patient and healthcare records",
+      "Created dynamic UI for admin and client interaction",
+      "Implemented backend logic and database structure for all features",
+      "Integrated API endpoints where required"
+    ],
+    "features": [
+      "Patient and healthcare record management",
+      "Appointment and resource management",
+      "Fullstack web application development"
+    ],
+    "achievements": "Built complete dynamic features and strengthened fullstack development skills.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Sanctum API Auth", "Postman", "Git"],
+    "link": "https://gyhealthcare.my/"
+  },
+  {
+    "id": 9,
+    "slug": "mdpl",
+    "title": "MDPL",
+    "type": "Company Project",
+    "country": "Malaysia",
+    "level":3,
+    "image": "/assets/img/projects/mdpl.png",
+    "role": "Feature Developer",
+    "teamSize": 3,
+    "description": "MDPL is a large-scale ERP system handling multiple company workflows. I contributed to backend API handling, feature development, and maintenance.",
+    "responsibilities": [
+      "Developed backend APIs for ERP modules",
+      "Implemented JWT-based API authentication",
+      "Maintained existing modules and fixed bugs",
+      "Integrated queue-based tasks and jobs for background processing",
+      "Optimized database queries for large datasets",
+      "Worked with team to implement modular architecture and maintain coding standards"
+    ],
+    "features": [
+      "API endpoints for various ERP workflows",
+      "JWT authentication for secure API access",
+      "Background jobs and queues for processing",
+      "Reports generation and data exports"
+    ],
+    "achievements": "Strengthened backend and API skills; learned large-scale ERP architecture and maintenance of complex systems.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "JWT API Auth", "Jobs", "Queues", "Postman", "Git"],
+    "link": "https://mdpl.com.my/"
+  },
+  {
+    "id": 10,
+    "slug": "sitara",
+    "title": "Sitara",
+    "type": "Company Project",
+    "country": "Malaysia",
+    "level":3,
+    "image": "/assets/img/projects/sitara.png",
+    "role": "Backend Developer",
+    "teamSize": 4,
+    "description": "Sitara is a hospital ERP project managing hospitals, clinics, doctors, patients, and HR workflows. I contributed mainly on backend modules and report generation.",
+    "responsibilities": [
+      "Developed backend modules for hospital and clinic management",
+      "Implemented report generation and optimized code for performance",
+      "Integrated API authentication using Sanctum",
+      "Maintained database schema and relationships for hospital ERP system",
+      "Worked on Jobs and Queues for background processes"
+    ],
+    "features": [
+      "Patient, doctor, and clinic management",
+      "Admin and HR module backend",
+      "Report generation and optimization",
+      "Sanctum API authentication",
+      "Background job handling with queues"
+    ],
+    "achievements": "Improved performance, reliability, and gained experience in hospital ERP systems and backend optimizations.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Sanctum API Auth", "Jobs", "Queues", "Postman", "Git"],
+    "link": "https://sitara.my/"
+  },
+  {
+    "id": 11,
+    "slug": "greatticket",
+    "title": "Great Ticket",
+    "type": "Company Project",
+    "country": "Malaysia",
+    "level":3,
+    "image": "/assets/img/projects/great-ticket.png",
+    "role": "Fullstack Developer",
+    "teamSize": 3,
+    "description": "Great Ticket is a multi-tenant SaaS event management and ticketing system. I worked on fullstack development, API handling, and real-time features.",
+    "responsibilities": [
+      "Implemented backend and frontend features for event and ticket management",
+      "Integrated Sanctum API authentication for mobile and web clients",
+      "Developed dynamic seat selection and QR code generation",
+      "Built checkout flow with coupon validation and order summary",
+      "Optimized database queries for multi-tenant architecture",
+      "Handled Jobs and Queues for notifications and background processes",
+      "Maintained existing codebase and added new features according to client requirements"
+    ],
+    "features": [
+      "Multi-tenant event and ticket management",
+      "Seat selection and reservation system",
+      "Real-time API for mobile and web apps",
+      "Coupon and discount management",
+      "QR code generation for tickets",
+      "Checkout flow and order management",
+      "Admin dashboard for event analytics"
+    ],
+    "achievements": "Built end-to-end SaaS system with fullstack capabilities, learned multi-tenant design, and implemented advanced real-time and background processing features.",
+    "technologiesUsed": ["PHP", "Laravel", "MySQL", "jQuery", "Sanctum API Auth", "Postman", "Queues", "Git"],
+    "link": "https://greatticket.my/"
+  }
+]
