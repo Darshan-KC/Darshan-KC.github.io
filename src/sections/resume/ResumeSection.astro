@@ -1,0 +1,36 @@
+---
+import SectionWrapper from "@sections/shared/SectionWrapper.astro";
+---
+
+<SectionWrapper
+  id="resume"
+  eyebrow="Resume"
+  title="A concise professional snapshot."
+  description="The resume is designed to be easy to update and straightforward for hiring teams to review."
+>
+  <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+    <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+      <p class="text-lg leading-8 text-ink-500">
+        Download a current version of my resume for a more detailed overview of my experience, technical focus, and community leadership.
+      </p>
+      <ul class="mt-8 space-y-3 text-sm text-ink-500">
+        <li class="flex items-start gap-3">
+          <span class="mt-1 h-2.5 w-2.5 rounded-full bg-accent-600" />
+          Proven expertise in backend systems, API design, and remote-first collaboration.
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 h-2.5 w-2.5 rounded-full bg-accent-600" />
+          Leadership across architecture, mentorship, and developer experience.
+        </li>
+      </ul>
+    </div>
+
+    <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+      <p class="font-semibold uppercase tracking-[0.22em] text-accent-500">Ready to share</p>
+      <p class="mt-5 text-base leading-7 text-ink-500">
+        If you'd like a polished resume file for recruiting or hiring team review, this download is the quickest way to see the full story.
+      </p>
+      <a href="/resume/darshan-kc-resume.pdf" class="mt-8 inline-flex items-center rounded-[12px] bg-ink-950 px-6 py-3 text-sm font-semibold text-button-fg transition hover:bg-ink-800">Download resume</a>
+    </div>
+  </div>
+</SectionWrapper>

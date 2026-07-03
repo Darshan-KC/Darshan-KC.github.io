@@ -1,0 +1,145 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import projects from "@data/projects.json";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { project } = Astro.props as Props;
+---
+
+<BaseLayout
+  title={`${project.title} · Case Study · ${profile.name}`}
+  description={project.summary}
+  canonicalPath={`/case-studies/${project.id}`}
+>
+  <article class="py-12">
+    <a
+      href="/case-studies"
+      class="inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600"
+      >← All case studies</a
+    >
+
+    <header
+      class="mt-8 rounded-[20px] border border-paper-200 bg-surface p-8 shadow-soft transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg sm:p-12" data-reveal
+    >
+      <span
+        class="rounded-full border border-accent-100 bg-accent-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-accent-700"
+        >{project.type}</span
+      >
+      <h1
+        class="mt-6 text-4xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-5xl"
+      >
+        {project.title}
+      </h1>
+      <p class="mt-5 max-w-2xl text-lg leading-8 text-ink-500">
+        {project.summary}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        {
+          project.github && (
+            <a
+              href={project.github}
+class="inline-flex items-center rounded-[12px] bg-ink-950 px-6 py-3 text-sm font-semibold text-button-fg transition hover:bg-ink-800"
+              >
+                Repository
+              </a>
+            )
+          }
+          {
+            project.demo && project.demo !== project.github && (
+              <a
+                href={project.demo}
+                class="inline-flex items-center rounded-[12px] border border-paper-200 bg-surface px-6 py-3 text-sm font-semibold text-ink-950 transition hover:border-accent-200 hover:text-accent-600"
+            >
+              Live link
+            </a>
+          )
+        }
+      </div>
+    </header>
+
+    <div class="mt-10 grid gap-6">
+      <section
+        class="rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal
+      >
+        <h2 class="text-2xl font-semibold text-ink-950">Problem</h2>
+        <p class="mt-4 text-base leading-8 text-ink-500">{project.problem}</p>
+      </section>
+
+      <section
+        class="rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal
+      >
+        <h2 class="text-2xl font-semibold text-ink-950">Solution</h2>
+        <p class="mt-4 text-base leading-8 text-ink-500">{project.solution}</p>
+      </section>
+
+      <section
+        class="rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal
+      >
+        <h2 class="text-2xl font-semibold text-ink-950">Architecture</h2>
+        <ul class="mt-5 space-y-3 text-base text-ink-500">
+          {
+            project.architecture.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-600" />
+                <span class="leading-7">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {
+            project.stack.map((item) => (
+              <span class="rounded-full bg-paper-50 px-3 py-2 text-sm font-medium text-ink-700">
+                {item}
+              </span>
+            ))
+          }
+        </div>
+      </section>
+
+      <div class="grid gap-6 lg:grid-cols-2">
+        <section
+          class="rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal
+        >
+          <h2 class="text-2xl font-semibold text-ink-950">Challenges</h2>
+          <ul class="mt-5 space-y-3 text-base text-ink-500">
+            {
+              project.challenges.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-600" />
+                  <span class="leading-7">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section
+          class="rounded-[20px] border border-paper-200 bg-surface-soft p-8 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal
+        >
+          <h2 class="text-2xl font-semibold text-ink-950">Lessons</h2>
+          <ul class="mt-5 space-y-3 text-base text-ink-500">
+            {
+              project.lessons.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-accent-600" />
+                  <span class="leading-7">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

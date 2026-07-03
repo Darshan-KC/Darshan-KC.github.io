@@ -1,0 +1,67 @@
+---
+import { siteConfig } from "@lib/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  canonicalPath = "/",
+  image,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
+const ogImage = image ? new URL(image, siteConfig.url).toString() : new URL(siteConfig.ogImage, siteConfig.url).toString();
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:locale" content={siteConfig.locale} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:site" content={siteConfig.socialHandle} />
+<meta name="twitter:creator" content={siteConfig.socialHandle} />
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    jobTitle: "Backend Engineer",
+    knowsAbout: [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "REST APIs",
+      "Redis",
+      "System Design",
+      "Software Architecture",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "Nepal",
+    },
+    image: ogImage,
+  })}
+/>

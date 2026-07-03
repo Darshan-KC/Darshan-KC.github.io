@@ -1,0 +1,2 @@
+# Engineering Case Studies
+Read master prompt. Build listing and dynamic detail pages. Include overview, business problem, architecture, database, API, security, performance, lessons, gallery and related studies.

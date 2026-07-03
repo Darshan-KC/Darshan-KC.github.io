@@ -1,0 +1,24 @@
+<button id="scroll-to-top" class="fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-[12px] bg-ink-950 text-button-fg shadow-card opacity-0 transition-all duration-300 hover:bg-ink-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500" aria-label="Scroll to top">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+  const button = document.getElementById("scroll-to-top");
+  if (button) {
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          button.classList.toggle("opacity-0", window.scrollY < 400);
+          button.classList.toggle("pointer-events-none", window.scrollY < 400);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+</script>

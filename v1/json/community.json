@@ -1,0 +1,66 @@
+[
+  {
+    "id": 4,
+    "role": "Mentor",
+    "organization": "Codefest Pokhara Hackathon",
+    "dates": "Nov 20–22, 2025",
+    "description": "Guided hackathon participants in project development.",
+    "responsibilities": [
+      "Provided technical guidance in Laravel and Python projects.",
+      "Assisted teams in debugging and optimizing their code.",
+      "Reviewed project submissions and offered constructive feedback."
+    ],
+    "achievements": [
+      "Contributed to the successful completion of participant projects.",
+      "Supported teams in applying best practices and problem-solving."
+    ]
+  },
+  {
+    "id": 3,
+    "role": "Python Instructor",
+    "organization": "CAPEC Pokhara",
+    "dates": "May 2025",
+    "description": "Delivered a workshop on Python OOP fundamentals.",
+    "responsibilities": [
+      "Prepared course material and coding exercises.",
+      "Conducted interactive Python sessions for learners.",
+      "Guided participants through practical exercises."
+    ],
+    "achievements": [
+      "Participants gained confidence in Python OOP concepts.",
+      "Received positive feedback on teaching approach."
+    ]
+  },
+  {
+    "id": 2,
+    "role": "Laravel Workshop Mentor",
+    "organization": "Code for Change",
+    "dates": "Aug 2024",
+    "description": "Mentored learners during a week-long Laravel bootcamp.",
+    "responsibilities": [
+      "Guided participants through hands-on Laravel exercises.",
+      "Reviewed code and provided feedback on best practices.",
+      "Assisted learners in troubleshooting and problem-solving."
+    ],
+    "achievements": [
+      "Helped participants complete their projects successfully.",
+      "Improved learners' understanding of MVC structure and Laravel workflow."
+    ]
+  },
+  {
+    "id": 1,
+    "role": "Public Relations Executive",
+    "organization": "Code for Change",
+    "dates": "Jan 2024 – Dec 2024",
+    "description": "Managed and promoted tech events, coordinated with local organizations for collaborations.",
+    "responsibilities": [
+      "Organized multiple tech events throughout the year.",
+      "Coordinated with local organizations for event support and sponsorship.",
+      "Handled communications and public relations for events."
+    ],
+    "achievements": [
+      "Successfully executed several well-attended events.",
+      "Built connections with partner organizations for future initiatives."
+    ]
+  }
+]

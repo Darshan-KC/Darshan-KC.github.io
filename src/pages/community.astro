@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import CommunitySection from "@sections/community/CommunitySection.astro";
+---
+
+<BaseLayout
+  title={`Community · ${profile.name}`}
+  description="Workshops, mentoring, and community leadership in the developer ecosystem."
+  canonicalPath="/community"
+>
+  <CommunitySection />
+</BaseLayout>

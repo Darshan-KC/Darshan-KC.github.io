@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f8fafc;
+  --color-surface-muted: #f6f8fb;
+  --color-border: #dbe4ec;
+  --color-text: #102a43;
+  --color-muted: #627d98;
+  --color-accent: #2563eb;
+  --color-accent-light: #eff6ff;
+  --color-accent-600: #1d4ed8;
+  --color-accent-700: #1e40af;
+  --color-button-fg: #ffffff;
+  --color-ink-950: #0f172a;
+  --color-ink-900: #111827;
+  --color-ink-800: #1f2937;
+  --color-ink-700: #334155;
+  --color-ink-600: #475569;
+  --color-ink-500: #64748b;
+  --color-paper-50: #f8fafc;
+  --color-paper-100: #f1f5f9;
+  --color-paper-200: #e2e8f0;
+  --shadow-soft: 0 8px 30px rgb(15 23 42 / 0.08);
+  --shadow-card: 0 1px 3px rgb(15 23 42 / 0.06), 0 8px 16px rgb(15 23 42 / 0.06);
+}
+
+.dark {
+  color-scheme: dark;
+  --color-background: #020617;
+  --color-surface: #0f172a;
+  --color-surface-soft: #131d33;
+  --color-surface-muted: #0b1424;
+  --color-border: #1e293b;
+  --color-text: #e2e8f0;
+  --color-muted: #94a3b8;
+  --color-accent: #3b82f6;
+  --color-accent-light: #172554;
+  --color-accent-600: #2563eb;
+  --color-accent-700: #bfdbfe;
+  --color-button-fg: #020617;
+  --color-ink-950: #f8fafc;
+  --color-ink-900: #f1f5f9;
+  --color-ink-800: #e2e8f0;
+  --color-ink-700: #cbd5e1;
+  --color-ink-600: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-paper-50: #111b2e;
+  --color-paper-100: #182338;
+  --color-paper-200: #1e293b;
+  --shadow-soft: 0 8px 30px rgb(0 0 0 / 0.3);
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 0.3), 0 8px 16px rgb(0 0 0 / 0.25);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: ManropeVariable, Manrope, InterVariable, Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family:
+    InterVariable,
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.dark body {
+  background: var(--color-background);
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.16);
+  color: var(--color-text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.5);
+  outline-offset: 3px;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal="scale"] {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal="scale"].revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "grow",
+    "title": "Grow",
+    "type": "Learning Platform",
+    "summary": "A course delivery platform for teachers and students where learning materials, enrollments, and access controls had to work reliably.",
+    "problem": "The product needed a clear structure for courses, modules, enrollments, and role-based access without relying on ad-hoc workflows.",
+    "solution": "I helped shape the application around Laravel conventions, defined the core domain model, and implemented the essential user flows for course management and student access.",
+    "architecture": ["Laravel MVC structure", "Database-driven course and enrollment flows", "Role-based access for teachers and students"],
+    "stack": ["Laravel", "PHP", "MySQL", "Bootstrap"],
+    "challenges": ["Balancing simplicity with extensibility", "Making content access predictable for different user roles"],
+    "lessons": ["Strong domain boundaries make later iteration much easier", "Solid defaults reduce unnecessary complexity in early-stage apps"],
+    "github": "https://github.com/Darshan-KC/Grow",
+    "demo": "https://github.com/Darshan-KC/Grow"
+  },
+  {
+    "id": "ams",
+    "title": "Attendance Management System",
+    "type": "Operations Platform",
+    "summary": "A multi-company attendance system designed to help teams track attendance and generate reports with less manual effort.",
+    "problem": "The workflow needed to be operationally simple for admins while flexible enough to support multiple teams and reporting needs.",
+    "solution": "I implemented the core backend modules, reporting flows, and administrative controls with a focus on maintainability and sane data modeling.",
+    "architecture": ["Admin-driven workflow design", "Role-based dashboards", "Structured report generation"],
+    "stack": ["Laravel", "PHP", "MySQL", "Bootstrap"],
+    "challenges": ["Designing a system that could grow beyond a single-company use case", "Keeping reporting logic understandable over time"],
+    "lessons": ["Good reporting workflows usually depend on disciplined data design", "Simple interfaces often create the most lasting value"],
+    "github": "https://github.com/Darshan-KC/Attendance-Management-System",
+    "demo": "https://github.com/Darshan-KC/Attendance-Management-System"
+  },
+  {
+    "id": "mdpl",
+    "title": "MDPL",
+    "type": "ERP Module Work",
+    "summary": "A large ERP environment where backend reliability and maintainable module boundaries mattered more than flashy interfaces.",
+    "problem": "The system required stable API behavior, maintainable feature work, and careful collaboration across a larger codebase.",
+    "solution": "I contributed to backend modules, API handling, and maintenance work while strengthening consistency in implementation patterns and service-level reliability.",
+    "architecture": ["Modular backend services", "Authenticated API flows", "Background processing and queue-based tasks"],
+    "stack": ["Laravel", "PHP", "MySQL", "Queues", "JWT"],
+    "challenges": ["Maintaining clarity in a growing enterprise codebase", "Handling operational issues without introducing regressions"],
+    "lessons": ["Maintainability compounds when architectural boundaries are respected", "Reliable systems are built through careful iteration"],
+    "github": "https://mdpl.com.my/",
+    "demo": "https://mdpl.com.my/"
+  }
+]

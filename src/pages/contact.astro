@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import ContactSection from "@sections/contact/ContactSection.astro";
+---
+
+<BaseLayout
+  title={`Contact · ${profile.name}`}
+  description="Get in touch about backend roles, technical leadership, and collaboration."
+  canonicalPath="/contact"
+>
+  <ContactSection />
+</BaseLayout>

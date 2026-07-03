@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import AboutSection from "@sections/about/AboutSection.astro";
+import ExperienceSection from "@sections/experience/ExperienceSection.astro";
+import CertificationsSection from "@sections/certifications/CertificationsSection.astro";
+---
+
+<BaseLayout
+  title={`About · ${profile.name}`}
+  description={profile.about.summary}
+  canonicalPath="/about"
+>
+  <AboutSection />
+  <ExperienceSection />
+  <CertificationsSection />
+</BaseLayout>

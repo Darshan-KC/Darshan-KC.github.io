@@ -1,0 +1,79 @@
+---
+import profile from "@data/profile.json";
+---
+
+<section id="hero" class="bg-paper-50 py-16" data-reveal>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="relative overflow-hidden rounded-[20px] border border-paper-200 bg-surface p-8 shadow-soft sm:p-12">
+  <div class="pointer-events-none absolute right-0 top-0 h-full w-72 translate-x-24 rounded-full bg-gradient-to-br from-accent-100/90 to-transparent opacity-70 blur-3xl"></div>
+  <div class="relative grid gap-10 lg:grid-cols-[3fr_2fr]">
+    <div class="space-y-8">
+      <div class="inline-flex items-center gap-3 rounded-full border border-accent-100 bg-accent-100 px-4 py-2 text-sm font-semibold text-accent-700 shadow-sm">
+        <span class="h-2.5 w-2.5 rounded-full bg-accent-600"></span>
+        {profile.heroBadge}
+      </div>
+
+      <div class="max-w-3xl space-y-6">
+        <h1 class="text-5xl font-semibold leading-[1.02] tracking-tight text-ink-950 sm:text-6xl lg:text-7xl">
+          {profile.tagline}
+        </h1>
+        <p class="max-w-2xl text-lg leading-8 text-ink-500">{profile.heroSubtitle}</p>
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a href={profile.cta.primary.href} class="inline-flex items-center justify-center rounded-[12px] bg-ink-950 px-8 py-4 text-base font-semibold text-button-fg shadow-card transition hover:bg-ink-800">
+          {profile.cta.primary.label}
+        </a>
+        <a href={profile.cta.secondary.href} class="inline-flex items-center justify-center rounded-[12px] border border-paper-200 bg-surface px-8 py-4 text-base font-semibold text-ink-950 transition hover:border-accent-300 hover:text-accent-600">
+          {profile.cta.secondary.label}
+        </a>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="rounded-[20px] border border-paper-200 bg-surface p-7 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-ink-500">Focus</p>
+          <p class="mt-4 text-base leading-7 text-ink-500">{profile.heroFocus}</p>
+        </div>
+        <div class="rounded-[20px] border border-paper-200 bg-surface p-7 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-ink-500">Approach</p>
+          <p class="mt-4 text-base leading-7 text-ink-500">{profile.heroApproach}</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="relative rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card">
+      <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent-100/60 to-transparent" />
+      <div class="relative flex items-center gap-5">
+        <picture>
+          <source srcset="/images/profile.webp" type="image/webp" />
+          <img src={profile.picture} alt={profile.name} width="112" height="112" fetchpriority="high" class="h-28 w-28 rounded-full border-4 border-surface object-cover shadow-xl" />
+        </picture>
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.14em] text-accent-500">{profile.title}</p>
+          <h2 class="mt-3 text-2xl font-semibold text-ink-950">{profile.name}</h2>
+          <p class="mt-2 text-sm leading-6 text-ink-500">{profile.heroAsideDescription}</p>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-[20px] border border-paper-200 bg-surface-soft p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-ink-500">Current focus</p>
+        <div class="mt-5 grid gap-3 text-sm font-semibold text-ink-700 sm:grid-cols-2">
+          {profile.focus.map((item) => (
+            <span class="rounded-full bg-surface px-4 py-2 shadow-sm">{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-8 rounded-[20px] border border-paper-200 bg-surface-soft p-6">
+        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-ink-500">Why this work</p>
+        <ul class="mt-4 space-y-3 text-sm leading-6 text-ink-500">
+          {profile.whyWork.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+import SectionWrapper from "@sections/shared/SectionWrapper.astro";
+import profile from "@data/profile.json";
+import settings from "@data/settings.json";
+import Icon from "@components/ui/Icon.astro";
+
+const highlightIcons = ["Code", "Server", "Graduation", "Users2"];
+---
+
+<SectionWrapper
+  id="about"
+  eyebrow="About"
+  title="A senior backend engineer who treats architecture as a design discipline."
+  description="I work on backend systems with a focus on reliability, clarity, and long-term operational effectiveness."
+>
+  <div class="grid gap-10 lg:grid-cols-[2fr_3fr]">
+    <aside class="rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal>
+      <div class="relative mx-auto w-32">
+        <div class="absolute inset-0 rounded-full bg-gradient-to-b from-accent-100/80 to-transparent opacity-60 blur-xl" />
+        <picture>
+          <source srcset="/images/profile.webp" type="image/webp" />
+          <img src={profile.picture} alt={profile.name} width="128" height="128" loading="lazy" class="relative h-32 w-32 rounded-full border-4 border-surface object-cover shadow-xl" />
+        </picture>
+      </div>
+
+      <div class="mt-6 text-center">
+        <h3 class="text-xl font-semibold text-ink-950">{profile.name}</h3>
+        <p class="mt-1 text-sm font-medium text-accent-500">{profile.title}</p>
+        <p class="mt-4 text-sm leading-6 text-ink-500">{settings.location}</p>
+        <p class="mt-1 text-sm font-semibold text-ink-700">{settings.availability}</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-3 gap-4 rounded-[16px] bg-surface-soft p-5">
+        {profile.stats.map((stat, i) => (
+          <div class="text-center">
+            <div class="flex justify-center">
+              <Icon name={["Briefcase", "Check", "Users"][i] || "Check"} size={18} class="text-accent-500" />
+            </div>
+            <p class="mt-2 text-2xl font-bold text-ink-950">{stat.value}</p>
+            <p class="mt-1 text-xs leading-4 text-ink-500">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </aside>
+
+    <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal data-reveal-delay="100">
+      <div class="space-y-6 text-lg leading-8 text-ink-500">
+        {profile.about.narrative.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {profile.about.highlights.map((item, i) => (
+          <div class="flex items-start gap-4 rounded-[16px] border border-paper-200 bg-surface-soft p-5 transition duration-300 ease-out hover:-translate-y-0.5 hover:shadow-md">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-accent-100">
+              <Icon name={highlightIcons[i] || "Code"} size={18} class="text-accent-600" />
+            </div>
+            <p class="mt-1 font-semibold text-ink-700">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</SectionWrapper>

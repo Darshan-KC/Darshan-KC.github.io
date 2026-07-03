@@ -1,0 +1,29 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import HeroSection from "@sections/hero/HeroSection.astro";
+import AboutSection from "@sections/about/AboutSection.astro";
+import ProjectsSection from "@sections/projects/ProjectsSection.astro";
+import ExperienceSection from "@sections/experience/ExperienceSection.astro";
+import SkillsSection from "@sections/skills/SkillsSection.astro";
+import CommunitySection from "@sections/community/CommunitySection.astro";
+import ArticlesSection from "@sections/articles/ArticlesSection.astro";
+import GithubSection from "@sections/github/GithubSection.astro";
+import ContactSection from "@sections/contact/ContactSection.astro";
+---
+
+<BaseLayout
+  title={profile.name}
+  description={profile.heroSubtitle}
+  canonicalPath="/"
+>
+  <HeroSection />
+  <ProjectsSection />
+  <AboutSection />
+  <ExperienceSection />
+  <SkillsSection />
+  <CommunitySection />
+  <ArticlesSection />
+  <GithubSection />
+  <ContactSection />
+</BaseLayout>

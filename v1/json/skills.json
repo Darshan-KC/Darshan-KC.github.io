@@ -1,0 +1,12 @@
+{
+  "softSkills": ["Team Management", "Leadership"],
+  "languages": ["Nepali", "English", "Hindi"],
+  "technicalSkills": {
+    "Backend / Frameworks": ["PHP", "Laravel", "Livewire", "Python", "Django"],
+    "Frontend": ["Tailwind CSS", "Bootstrap", "JavaScript (ES6)", "React.js", "jQuery", "Blade"],
+    "Databases": ["MySQL", "PostgreSQL", "Redis"],
+    "DevOps / Cloud": ["DigitalOcean", "Docker", "GitHub Actions", "Linux", "Nginx", "Apache"],
+    "Expertise": ["REST APIs", "WebSockets", "Queues", "CRON", "Multi-Tenancy", "Auth", "Logging"],
+    "Others": ["Git", "Agile", "Debugging", "Mentoring", "System Architecture Basics"]
+  }
+}

@@ -1,0 +1,72 @@
+---
+import type { InferGetStaticPropsType } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import articles from "@data/articles.json";
+
+export function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { id: article.id },
+    props: { article },
+  }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { article } = Astro.props as Props;
+
+const canonicalUrl = new URL(`/articles/${article.id}`, "https://darshanchhetri.com.np").toString();
+const articleImage = article.image ? new URL(article.image, "https://darshanchhetri.com.np").toString() : "";
+---
+
+<BaseLayout
+  title={`${article.title} · ${profile.name}`}
+  description={article.summary}
+  canonicalPath={`/articles/${article.id}`}
+  image={article.image}
+>
+  <section class="bg-paper-50 py-20">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: article.summary,
+      datePublished: article.published,
+      author: {
+        "@type": "Person",
+        name: profile.name,
+      },
+      image: articleImage,
+      url: canonicalUrl,
+    })} />
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <article data-reveal>
+      <a
+        href="/articles"
+        class="inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600"
+        >← All articles</a
+      >
+
+      <header class="mt-8 max-w-5xl">
+        <span class="rounded-full bg-accent-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">{article.published}</span>
+        <h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-5xl">
+          {article.title}
+        </h1>
+        <p class="mt-5 text-lg leading-8 text-ink-500">
+          {article.summary}
+        </p>
+      </header>
+
+      {article.image && (
+        <figure class="mt-10 max-w-5xl" data-reveal>
+          <img src={article.image} alt={article.title} width="1024" height="538" loading="lazy" class="w-full rounded-[20px] border border-paper-200" />
+        </figure>
+      )}
+
+      <div class="mt-10 max-w-5xl space-y-6 text-base leading-8 text-ink-500" data-reveal data-reveal-delay="100">
+        <p>{article.content}</p>
+      </div>
+    </article>
+    </div>
+  </section>
+</BaseLayout>

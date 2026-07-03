@@ -1,0 +1,47 @@
+[
+  {
+    "id": "current",
+    "type": "Professional",
+    "title": "Mid PHP / Laravel Developer",
+    "organization": "Websoft Technology Nepal",
+    "period": "Jan 2024 — Present",
+    "location": "Pokhara, Nepal",
+    "summary": "Building backend services for client and product work, collaborating across delivery teams, and mentoring early-career developers."
+  },
+  {
+    "id": "intern",
+    "type": "Professional",
+    "title": "PHP / Laravel Intern",
+    "organization": "XDezo Technology",
+    "period": "Jul 2023 — Jan 2024",
+    "location": "Pokhara, Nepal",
+    "summary": "Developed initial product features, learned structured delivery practices, and gained hands-on experience across the full web application lifecycle."
+  },
+  {
+    "id": "bootcamp",
+    "type": "Community",
+    "title": "Laravel Bootcamp Mentor",
+    "organization": "Code for Change",
+    "period": "Aug 2024",
+    "location": "Pokhara, Nepal",
+    "summary": "Mentored learners through hands-on Laravel exercises and supported practical project building."
+  },
+  {
+    "id": "python",
+    "type": "Community",
+    "title": "Python Workshop Instructor",
+    "organization": "CAPEC Pokhara",
+    "period": "May 2025",
+    "location": "Pokhara, Nepal",
+    "summary": "Facilitated an introductory workshop on Python fundamentals and object-oriented programming concepts."
+  },
+  {
+    "id": "hackathon",
+    "type": "Community",
+    "title": "Hackathon Mentor",
+    "organization": "Codefest Pokhara",
+    "period": "Nov 2025",
+    "location": "Pokhara, Nepal",
+    "summary": "Guided participants in debugging, architecture decisions, and turning ideas into working prototypes."
+  }
+]

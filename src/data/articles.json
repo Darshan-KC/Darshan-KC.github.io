@@ -1,0 +1,20 @@
+[
+  {
+    "id": "architecture-reliability-devx",
+    "title": "Writing about architecture, reliability, and developer experience",
+    "summary": "A growing collection of notes on backend engineering, system thinking, and practical development habits.",
+    "href": "/articles/architecture-reliability-devx",
+    "published": "2025",
+    "image": "/images/articles/architecture.svg",
+    "content": "This article explores how thoughtful architecture choices directly impact long-term reliability and developer experience. Drawing from real project work, it covers service boundary decisions, data modeling trade-offs, and why simplicity often wins over clever abstractions."
+  },
+  {
+    "id": "workshops-community-learning",
+    "title": "Sharing lessons from workshops and community-led learning",
+    "summary": "Insights from mentoring developers, running sessions, and building technical confidence in teams.",
+    "href": "/articles/workshops-community-learning",
+    "published": "2025",
+    "image": "/images/articles/workshops.svg",
+    "content": "Facilitating workshops and mentoring developers has taught me that the best learning happens when people build real things. This article shares practical approaches to structuring sessions, giving effective feedback, and creating environments where developers feel safe to explore and make mistakes."
+  }
+]

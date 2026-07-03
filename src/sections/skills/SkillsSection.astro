@@ -1,0 +1,46 @@
+---
+import SectionWrapper from "@sections/shared/SectionWrapper.astro";
+import skills from "@data/skills.json";
+import Icon from "@components/ui/Icon.astro";
+
+const categoryIcons: Record<string, string> = {
+  Backend: "Server",
+  Architecture: "FileText",
+  Database: "Server",
+  DevOps: "Code",
+  Security: "Check",
+  Tools: "Code",
+};
+---
+
+<SectionWrapper
+  id="skills"
+  eyebrow="Skills"
+  title="A practical toolkit for building dependable systems."
+  description="My focus has remained on the skills that help teams ship well and maintain quality over time."
+>
+  <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+    {skills.categories.map((category, index) => (
+      <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal data-reveal-delay={`${index * 100}`}>
+        <h3 class="flex items-center gap-2 text-lg font-semibold text-ink-950">
+          <Icon name={categoryIcons[category.name] || "Code"} size={18} class="text-accent-500" />
+          {category.name}
+        </h3>
+        <ul class="mt-5 flex flex-wrap gap-3">
+          {category.items.map((item) => (
+            <li class="rounded-full border border-paper-200 bg-paper-50 px-4 py-2 text-sm font-medium text-ink-700">{item}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-8 rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-accent-500">Currently Learning</p>
+    <div class="mt-4 flex flex-wrap gap-3">
+      {skills.learning.map((item) => (
+        <span class="rounded-full bg-surface px-4 py-2 text-sm font-semibold text-ink-700 shadow-sm">{item}</span>
+      ))}
+    </div>
+  </div>
+</SectionWrapper>

@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="340" cy="230" r="40" fill="#2563EB" opacity="0.15"/>
+  <circle cx="340" cy="230" r="20" fill="#2563EB" opacity="0.3"/>
+  <rect x="260" y="310" width="160" height="24" rx="6" fill="#2563EB" opacity="0.1"/>
+  <rect x="280" y="350" width="120" height="24" rx="6" fill="#2563EB" opacity="0.1"/>
+  <rect x="300" y="390" width="80" height="24" rx="6" fill="#2563EB" opacity="0.08"/>
+  <circle cx="740" cy="230" r="40" fill="#1D4ED8" opacity="0.15"/>
+  <circle cx="740" cy="230" r="20" fill="#1D4ED8" opacity="0.3"/>
+  <rect x="660" y="310" width="160" height="24" rx="6" fill="#1D4ED8" opacity="0.1"/>
+  <rect x="680" y="350" width="120" height="24" rx="6" fill="#1D4ED8" opacity="0.1"/>
+  <line x1="420" y1="230" x2="620" y2="230" stroke="#2563EB" stroke-width="2" stroke-dasharray="8 4" opacity="0.3"/>
+  <text x="600" y="480" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#2563EB">Architecture · Reliability · Developer Experience</text>
+</svg>

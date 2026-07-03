@@ -1,0 +1,101 @@
+---
+import Seo from "@components/layout/Seo.astro";
+import Navbar from "@components/layout/Navbar.astro";
+import CommandPalette from "@components/ui/CommandPalette";
+import ScrollToTop from "@components/ui/ScrollToTop.astro";
+import FooterSection from "@sections/footer/FooterSection.astro";
+import navigation from "@data/navigation.json";
+import projects from "@data/projects.json";
+import articles from "@data/articles.json";
+import "@styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+}
+
+const { title, description, canonicalPath, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script is:inline>
+      (function () {
+        try {
+          const stored = localStorage.getItem("theme");
+          const theme =
+            stored ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+          document.documentElement.classList.toggle("dark", theme === "dark");
+        } catch {
+          // Theme preference not available
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="icon" type="image/png" href="/images/logo-dark-bg.png" />
+    <link rel="apple-touch-icon" href="/images/logo-dark-bg.png" />
+    <link rel="preload" as="image" href="/images/profile.svg" fetchpriority="high" />
+    <Seo title={title} description={description} canonicalPath={canonicalPath} image={image} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap"
+      media="print" onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" />
+    </noscript>
+  </head>
+  <body class="antialiased">
+    <script is:inline>
+      (function() {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              var delay = entry.target.getAttribute("data-reveal-delay");
+              if (delay) {
+                setTimeout(function() { entry.target.classList.add("revealed"); }, parseInt(delay));
+              } else {
+                entry.target.classList.add("revealed");
+              }
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: "0px 0px -80px 0px" });
+        function observeAll() {
+          document.querySelectorAll("[data-reveal]").forEach(function(el) { observer.observe(el); });
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", observeAll);
+        } else {
+          observeAll();
+        }
+        document.addEventListener("astro:page-load", observeAll);
+      })();
+    </script>
+    <CommandPalette
+      client:idle
+      pages={navigation}
+      projects={projects}
+      articles={articles}
+    />
+
+    <main class="flex min-h-screen w-full flex-col">
+      <Navbar />
+      <slot />
+      <ScrollToTop />
+      <FooterSection />
+    </main>
+  </body>
+</html>

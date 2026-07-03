@@ -1,0 +1,52 @@
+---
+import SectionWrapper from "@sections/shared/SectionWrapper.astro";
+import settings from "@data/settings.json";
+import social from "@data/social.json";
+import Icon from "@components/ui/Icon.astro";
+---
+
+<SectionWrapper
+  id="contact"
+  eyebrow="Contact"
+  title="Let’s turn your backend challenges into dependable systems."
+  description="If you are building something ambitious and need a careful, experienced backend engineer, I’m available for remote roles and technical leadership work."
+>
+  <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+    <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+      <a href={`mailto:${settings.email}`} class="inline-flex items-center justify-center rounded-[12px] bg-accent-600 px-8 py-4 text-base font-semibold text-button-fg transition hover:bg-accent-700 w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Send an email
+      </a>
+      <p class="mt-6 text-base leading-7 text-ink-500">
+        {settings.location}<br />
+        {settings.availability}
+      </p>
+      <div class="mt-10 space-y-4 rounded-[20px] border border-paper-200 bg-surface-soft p-6 shadow-sm">
+        {social.map((item) => (
+          <a href={item.href} class="flex items-center gap-3 rounded-[12px] border border-paper-200 bg-paper-50 px-5 py-3 text-sm font-semibold text-ink-800 transition hover:border-accent-300 hover:text-accent-600">
+            <Icon name={item.icon} class="shrink-0 text-accent-500" />
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <form class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" action={settings.formspree} method="POST">
+      <div class="grid gap-5 sm:grid-cols-2">
+        <label class="block text-sm font-medium text-ink-700">
+          Name
+          <input class="mt-2 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20" type="text" name="name" required />
+        </label>
+        <label class="block text-sm font-medium text-ink-700">
+          Email
+          <input class="mt-2 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20" type="email" name="email" required />
+        </label>
+      </div>
+      <label class="mt-5 block text-sm font-medium text-ink-700">
+        Message
+        <textarea class="mt-2 min-h-32 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20" name="message" required></textarea>
+      </label>
+      <button class="mt-6 inline-flex items-center rounded-[12px] bg-ink-950 px-6 py-3 text-sm font-semibold text-button-fg transition hover:bg-ink-800" type="submit">Send message</button>
+    </form>
+  </div>
+</SectionWrapper>

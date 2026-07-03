@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Technical Workshops",
+    "summary": "I design and facilitate hands-on learning sessions that help developers move from curiosity to practical confidence.",
+    "highlights": ["Laravel workshops", "Python fundamentals", "Mentorship-driven learning"]
+  },
+  {
+    "title": "Community Leadership",
+    "summary": "My community work has focused on creating welcoming spaces for learning, collaboration, and long-term growth.",
+    "highlights": ["Event coordination", "Partnership building", "Knowledge sharing"]
+  },
+  {
+    "title": "Mentoring",
+    "summary": "I enjoy helping others improve their engineering habits, solve real problems, and grow with confidence.",
+    "highlights": ["Code reviews", "Debugging support", "Career guidance"]
+  }
+]

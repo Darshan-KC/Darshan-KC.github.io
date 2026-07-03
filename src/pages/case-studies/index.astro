@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import ProjectsSection from "@sections/projects/ProjectsSection.astro";
+---
+
+<BaseLayout
+  title={`Engineering Case Studies · ${profile.name}`}
+  description="Engineering case studies focused on problem framing, architecture, trade-offs, and lessons learned."
+  canonicalPath="/case-studies"
+>
+  <ProjectsSection />
+</BaseLayout>

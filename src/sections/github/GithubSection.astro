@@ -1,0 +1,21 @@
+---
+import SectionWrapper from "@sections/shared/SectionWrapper.astro";
+import settings from "@data/settings.json";
+---
+
+<SectionWrapper
+  id="github"
+  eyebrow="GitHub"
+  title="Open work that reflects how I think and build."
+  description="I keep a steady stream of practical projects and experiments that help me sharpen implementation habits and product thinking."
+>
+  <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+    <p class="max-w-3xl text-lg leading-8 text-ink-500">
+      {settings.githubDescription}
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href={settings.github} class="inline-flex items-center rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-2 text-sm font-semibold text-ink-800 transition hover:border-accent-300 hover:text-accent-600">View GitHub Profile</a>
+      <a href="/case-studies" class="inline-flex items-center rounded-[12px] border border-paper-200 bg-surface px-4 py-2 text-sm font-semibold text-ink-800 transition hover:border-accent-300 hover:text-accent-600">Browse Case Studies</a>
+    </div>
+  </div>
+</SectionWrapper>

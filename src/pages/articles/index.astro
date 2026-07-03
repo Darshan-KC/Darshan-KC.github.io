@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import articles from "@data/articles.json";
+---
+
+<BaseLayout
+  title={`Articles · ${profile.name}`}
+  description="Notes, reflections, and lessons from backend engineering, workshops, and community-led learning."
+  canonicalPath="/articles"
+>
+  <section class="bg-paper-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div>
+      <p class="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-accent-500">Articles</p>
+      <h1 class="max-w-5xl text-4xl font-semibold tracking-tight text-ink-950 sm:text-5xl">Notes, reflections, and lessons from the work.</h1>
+      <p class="mt-5 max-w-3xl text-lg leading-8 text-ink-500">I write to sharpen my thinking and share practical ideas with other engineers and learners.</p>
+    </div>
+
+    <div class="mt-14 grid gap-8 md:grid-cols-2">
+      {articles.map((article, index) => (
+        <article class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal data-reveal-delay={`${index * 100}`}>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-accent-500">{article.published}</p>
+          <h2 class="mt-3 text-xl font-semibold text-ink-950">{article.title}</h2>
+          <p class="mt-4 text-base leading-7 text-ink-500">{article.summary}</p>
+          <a
+            href={article.href}
+            class="mt-5 inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600"
+          >
+            Read more &rarr;
+          </a>
+        </article>
+      ))}
+    </div>
+
+      {articles.length === 0 && (
+      <div class="mt-16 rounded-[20px] border border-paper-200 bg-surface p-10 text-center shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-lg text-ink-500">Articles coming soon.</p>
+      </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

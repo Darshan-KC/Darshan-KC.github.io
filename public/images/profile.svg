@@ -1,0 +1,6 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="40" fill="#2563EB" />
+  <circle cx="120" cy="90" r="42" fill="#FFFFFF" opacity="0.2" />
+  <path d="M72 190C72 159.03 97.03 134 128 134H152C182.97 134 208 159.03 208 190V196H72V190Z" fill="#FFFFFF" opacity="0.2" />
+  <text x="120" y="148" text-anchor="middle" font-family="Inter, sans-serif" font-size="72" font-weight="700" fill="#FFFFFF">KC</text>
+</svg>

@@ -1,0 +1,8 @@
+[
+  { "label": "About", "href": "/about", "icon": "User" },
+  { "label": "Case Studies", "href": "/case-studies", "icon": "Folder" },
+  { "label": "Articles", "href": "/articles", "icon": "FileText" },
+  { "label": "Community", "href": "/community", "icon": "Users" },
+  { "label": "Resume", "href": "/resume", "icon": "File" },
+  { "label": "Contact", "href": "/contact", "icon": "Mail" }
+]

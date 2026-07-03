@@ -1,0 +1,46 @@
+{
+  "name": "Darshan KC",
+  "title": "Backend Engineer",
+  "tagline": "Building reliable backend systems and empowering developer communities.",
+  "heroSubtitle": "Backend Engineer specializing in Laravel, scalable architectures, clean engineering practices, and community leadership.",
+  "focus": ["Laravel", "System Design", "Cybersecurity", "Remote Opportunities"],
+  "about": {
+    "summary": "I build dependable backend systems with an eye for architecture, maintainability, and long-term operational clarity.",
+    "narrative": [
+      "My work sits at the intersection of product thinking and engineering craftsmanship. I enjoy turning ambiguous requirements into reliable systems that are easy to operate and simple to evolve.",
+      "Over time, my focus has grown from writing solid application code to shaping service boundaries, improving developer workflows, and helping others grow through mentorship and technical leadership.",
+      "I care deeply about building teams that move with intention, documenting decisions clearly, and approaching complex problems with calm, structured thinking."
+    ],
+    "highlights": [
+      "Backend systems and API design",
+      "Scalable architecture and service boundaries",
+      "Community-led engineering education",
+      "Mentorship and technical facilitation"
+    ]
+  },
+  "heroBadge": "Backend engineering · system design · developer communities",
+  "heroFocus": "Building backend systems that feel stable, transparent, and easy to extend.",
+  "heroApproach": "Combining thoughtful service boundaries, pragmatic engineering standards, and community-led mentorship.",
+  "heroAsideDescription": "Backend-focused engineer delivering clean APIs, reliable services, and robust team workflows.",
+  "whyWork": [
+    "Crafting scalable systems with clear architecture.",
+    "Helping teams build with confidence.",
+    "Turning complex services into reliable products."
+  ],
+  "picture": "/images/profile.jpg",
+  "stats": [
+    { "label": "Professional Experience", "value": "3+ years" },
+    { "label": "Projects delivered", "value": "10+" },
+    { "label": "Community sessions", "value": "20+" }
+  ],
+  "cta": {
+    "primary": {
+      "label": "View Case Studies",
+      "href": "/case-studies"
+    },
+    "secondary": {
+      "label": "Download Resume",
+      "href": "/resume/darshan-kc-resume.pdf"
+    }
+  }
+}

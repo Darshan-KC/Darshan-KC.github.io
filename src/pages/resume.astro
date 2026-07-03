@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import ResumeSection from "@sections/resume/ResumeSection.astro";
+---
+
+<BaseLayout
+  title={`Resume · ${profile.name}`}
+  description="Download a concise professional resume for hiring teams."
+  canonicalPath="/resume"
+>
+  <ResumeSection />
+</BaseLayout>

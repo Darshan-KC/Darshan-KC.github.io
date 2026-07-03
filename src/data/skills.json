@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "name": "Backend",
+      "items": ["Laravel", "PHP", "REST APIs", "Authentication", "Queues", "WebSockets"]
+    },
+    {
+      "name": "Architecture",
+      "items": ["System Design", "Clean Architecture", "Service Boundaries", "Code Review", "Documentation"]
+    },
+    {
+      "name": "Database",
+      "items": ["MySQL", "Redis", "Query Optimization", "Schema Design"]
+    },
+    {
+      "name": "DevOps",
+      "items": ["Docker", "Linux", "Git", "GitHub Actions", "CI Workflow"]
+    },
+    {
+      "name": "Security",
+      "items": ["Auth Patterns", "Secure APIs", "Threat Awareness", "Operational Hardening"]
+    },
+    {
+      "name": "Tools",
+      "items": ["Postman", "Composer", "Tailwind CSS", "Astro", "TypeScript"]
+    }
+  ],
+  "learning": ["Cloud Architecture", "Distributed Systems", "Advanced Security Practices"]
+}
