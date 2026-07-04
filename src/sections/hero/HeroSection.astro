@@ -44,9 +44,9 @@ import profile from "@data/profile.json";
     <aside class="relative rounded-[20px] border border-paper-200 bg-surface p-8 shadow-card">
       <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-accent-100/60 to-transparent" />
       <div class="relative flex items-center gap-5">
-        <picture>
+        <picture class="shrink-0">
           <source srcset="/images/profile.webp" type="image/webp" />
-          <img src={profile.picture} alt={profile.name} width="112" height="112" fetchpriority="high" class="h-28 w-28 rounded-full border-4 border-surface object-cover shadow-xl" />
+          <img src={profile.picture} alt={profile.name} width="112" height="112" fetchpriority="high" class="h-20 w-20 max-w-none rounded-xl border-4 border-surface object-cover shadow-xl sm:h-28 sm:w-28" />
         </picture>
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.14em] text-accent-500">{profile.title}</p>

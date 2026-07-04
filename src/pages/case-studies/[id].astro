@@ -21,7 +21,9 @@ const { project } = Astro.props as Props;
   description={project.summary}
   canonicalPath={`/case-studies/${project.id}`}
 >
-  <article class="py-12">
+  <section class="bg-paper-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <article>
     <a
       href="/case-studies"
       class="inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600"
@@ -141,5 +143,7 @@ class="inline-flex items-center rounded-[12px] bg-ink-950 px-6 py-3 text-sm font
         </section>
       </div>
     </div>
-  </article>
+    </article>
+    </div>
+  </section>
 </BaseLayout>
