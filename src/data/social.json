@@ -1,6 +1,6 @@
 [
-  { "label": "Email", "href": "mailto:darshankc.dev@gmail.com", "icon": "Mail" },
+  { "label": "Email", "href": "mailto:darshanbahadurchhetri@gmail.com", "icon": "Mail" },
   { "label": "GitHub", "href": "https://github.com/Darshan-KC", "icon": "GitHub" },
-  { "label": "LinkedIn", "href": "https://www.linkedin.com/in/darshan-kc/", "icon": "LinkedIn" },
+  { "label": "LinkedIn", "href": "https://www.linkedin.com/in/darshan-chhetri/", "icon": "LinkedIn" },
   { "label": "Location", "href": "/contact", "icon": "MapPin" }
 ]

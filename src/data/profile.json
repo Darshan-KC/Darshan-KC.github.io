@@ -30,7 +30,7 @@
   "picture": "/images/profile.jpg",
   "stats": [
     { "label": "Professional Experience", "value": "3+ years" },
-    { "label": "Projects delivered", "value": "10+" },
+    { "label": "Projects delivered", "value": "30+" },
     { "label": "Community sessions", "value": "20+" }
   ],
   "cta": {
