@@ -1,0 +1,17 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#FFF7ED" stroke="#EA580C" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="340" cy="230" r="45" fill="#EA580C" opacity="0.12"/>
+  <circle cx="340" cy="230" r="30" fill="#EA580C" opacity="0.18"/>
+  <circle cx="340" cy="230" r="15" fill="#EA580C" opacity="0.3"/>
+  <path d="M270 340 h140" stroke="#EA580C" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+  <rect x="280" y="360" width="120" height="24" rx="6" fill="#EA580C" opacity="0.1"/>
+  <rect x="300" y="400" width="80" height="24" rx="6" fill="#EA580C" opacity="0.08"/>
+  <circle cx="740" cy="210" r="16" fill="#C2410C" opacity="0.25"/>
+  <circle cx="740" cy="250" r="16" fill="#C2410C" opacity="0.2"/>
+  <circle cx="740" cy="290" r="16" fill="#C2410C" opacity="0.15"/>
+  <path d="M690 340 C700 290, 780 290, 790 340" stroke="#EA580C" stroke-width="2" fill="none" opacity="0.3" stroke-linecap="round"/>
+  <rect x="660" y="360" width="160" height="24" rx="6" fill="#C2410C" opacity="0.1"/>
+  <rect x="680" y="400" width="120" height="24" rx="6" fill="#C2410C" opacity="0.08"/>
+  <text x="600" y="480" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#EA580C">Learning · Slowing Down · Burnout</text>
+</svg>

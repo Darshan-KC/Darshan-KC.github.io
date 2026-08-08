@@ -6,7 +6,7 @@ import articles from "@data/articles.json";
 
 export function getStaticPaths() {
   return articles.map((article) => ({
-    params: { id: article.id },
+    params: { id: article.slug },
     props: { article },
   }));
 }
@@ -15,15 +15,22 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { article } = Astro.props as Props;
 
-const canonicalUrl = new URL(`/articles/${article.id}`, "https://darshanchhetri.com.np").toString();
-const articleImage = article.image ? new URL(article.image, "https://darshanchhetri.com.np").toString() : "";
+const canonicalUrl = new URL(`/articles/${article.slug}`, "https://darshanchhetri.com.np").toString();
+const publishedDate = new Date(`${article.published}T00:00:00`).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const articleImages = article.image.map((src) =>
+  new URL(src, "https://darshanchhetri.com.np").toString()
+);
 ---
 
 <BaseLayout
   title={`${article.title} · ${profile.name}`}
   description={article.summary}
-  canonicalPath={`/articles/${article.id}`}
-  image={article.image}
+  canonicalPath={`/articles/${article.slug}`}
+  image={article.image[0]}
 >
   <section class="bg-paper-50 py-20">
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
@@ -36,7 +43,7 @@ const articleImage = article.image ? new URL(article.image, "https://darshanchhe
         "@type": "Person",
         name: profile.name,
       },
-      image: articleImage,
+      image: articleImages,
       url: canonicalUrl,
     })} />
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -48,7 +55,7 @@ const articleImage = article.image ? new URL(article.image, "https://darshanchhe
       >
 
       <header class="mt-8 max-w-5xl">
-        <span class="rounded-full bg-accent-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">{article.published}</span>
+        <span class="rounded-full bg-accent-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">{publishedDate}</span>
         <h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-5xl">
           {article.title}
         </h1>
@@ -57,15 +64,21 @@ const articleImage = article.image ? new URL(article.image, "https://darshanchhe
         </p>
       </header>
 
-      {article.image && (
+      {article.image.map((src, index) => (
         <figure class="mt-10 max-w-5xl" data-reveal>
-          <img src={article.image} alt={article.title} width="1024" height="538" loading="lazy" class="w-full rounded-[20px] border border-paper-200" />
+          <img src={src} alt={article.title} width="1024" height="538" loading="lazy" class="w-full rounded-[20px] border border-paper-200" />
+          {article.image.length > 1 && (
+            <figcaption class="mt-2 text-center text-sm text-ink-500">Figure {index + 1}</figcaption>
+          )}
         </figure>
-      )}
+      ))}
 
-      <div class="mt-10 max-w-5xl space-y-6 text-base leading-8 text-ink-500" data-reveal data-reveal-delay="100">
-        <p>{article.content}</p>
-      </div>
+      <div
+        class="prose prose-lg mt-10 max-w-5xl text-ink-600 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink-950 prose-p:leading-8 prose-a:text-accent-600 prose-strong:text-ink-900 prose-blockquote:border-l-accent-500 prose-blockquote:text-ink-600 prose-li:marker:text-ink-400"
+        data-reveal
+        data-reveal-delay="100"
+        set:html={article.content}
+      ></div>
     </article>
     </div>
   </section>

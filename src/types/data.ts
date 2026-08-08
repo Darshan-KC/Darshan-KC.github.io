@@ -38,7 +38,8 @@ export interface Project {
 }
 
 export interface ExperienceItem {
-  id: string;
+  id: number;
+  slug: string;
   type: string;
   title: string;
   organization: string;
@@ -59,11 +60,13 @@ export interface CommunityItem {
 }
 
 export interface Article {
-  id: string;
+  id: number;
+  slug: string;
   title: string;
   summary: string;
   href: string;
   published: string;
+  image: string[];
 }
 
 export interface SocialLink {
@@ -80,7 +83,13 @@ export interface Settings {
   availability: string;
   linkedin: string;
   github: string;
-  formspree: string;
+  web3formsAccessKey: string;
+  web3formsSalt: string;
+  contactRateLimit: {
+    minIntervalSeconds: number;
+    windowSeconds: number;
+    maxPerHour: number;
+  };
 }
 
 export interface Certification {

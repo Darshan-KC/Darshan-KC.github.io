@@ -1,15 +1,7 @@
 [
   {
-    "id": "current",
-    "type": "Professional",
-    "title": "Mid PHP / Laravel Developer",
-    "organization": "Websoft Technology Nepal",
-    "period": "Jan 2024 — Present",
-    "location": "Pokhara, Nepal",
-    "summary": "Building backend services for client and product work, collaborating across delivery teams, and mentoring early-career developers."
-  },
-  {
-    "id": "intern",
+    "id": 1,
+    "slug": "intern",
     "type": "Professional",
     "title": "PHP / Laravel Intern",
     "organization": "XDezo Technology",
@@ -18,7 +10,18 @@
     "summary": "Developed initial product features, learned structured delivery practices, and gained hands-on experience across the full web application lifecycle."
   },
   {
-    "id": "bootcamp",
+    "id": 2,
+    "slug": "current",
+    "type": "Professional",
+    "title": "Mid PHP / Laravel Developer",
+    "organization": "Websoft Technology Nepal",
+    "period": "Jan 2024 — Present",
+    "location": "Pokhara, Nepal",
+    "summary": "Building backend services for client and product work, collaborating across delivery teams, and mentoring early-career developers."
+  },
+  {
+    "id": 3,
+    "slug": "bootcamp",
     "type": "Community",
     "title": "Laravel Bootcamp Mentor",
     "organization": "Code for Change",
@@ -27,7 +30,8 @@
     "summary": "Mentored learners through hands-on Laravel exercises and supported practical project building."
   },
   {
-    "id": "python",
+    "id": 4,
+    "slug": "python",
     "type": "Community",
     "title": "Python Workshop Instructor",
     "organization": "CAPEC Pokhara",
@@ -36,7 +40,8 @@
     "summary": "Facilitated an introductory workshop on Python fundamentals and object-oriented programming concepts."
   },
   {
-    "id": "hackathon",
+    "id": 5,
+    "slug": "hackathon",
     "type": "Community",
     "title": "Hackathon Mentor",
     "organization": "Codefest Pokhara",

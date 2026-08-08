@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="290" cy="210" r="26" fill="#7C3AED" opacity="0.12"/>
+  <circle cx="290" cy="210" r="26" stroke="#7C3AED" stroke-width="2" fill="none" opacity="0.35"/>
+  <circle cx="390" cy="210" r="26" fill="#7C3AED" opacity="0.12"/>
+  <circle cx="390" cy="210" r="26" stroke="#7C3AED" stroke-width="2" fill="none" opacity="0.35"/>
+  <circle cx="340" cy="250" r="26" fill="#7C3AED" opacity="0.2"/>
+  <path d="M260 330 q30 -18 80 -18 q50 0 80 18" stroke="#7C3AED" stroke-width="2" fill="none" opacity="0.25"/>
+  <rect x="280" y="360" width="120" height="24" rx="6" fill="#7C3AED" opacity="0.1"/>
+  <rect x="300" y="400" width="80" height="24" rx="6" fill="#7C3AED" opacity="0.08"/>
+  <circle cx="700" cy="210" r="14" fill="#6D28D9" opacity="0.25"/>
+  <circle cx="740" cy="250" r="14" fill="#6D28D9" opacity="0.2"/>
+  <circle cx="780" cy="210" r="14" fill="#6D28D9" opacity="0.25"/>
+  <circle cx="720" cy="290" r="14" fill="#6D28D9" opacity="0.15"/>
+  <path d="M660 340 q30 -18 80 -18 q50 0 80 18" stroke="#7C3AED" stroke-width="2" fill="none" opacity="0.25"/>
+  <rect x="660" y="360" width="160" height="24" rx="6" fill="#6D28D9" opacity="0.1"/>
+  <rect x="680" y="400" width="120" height="24" rx="6" fill="#6D28D9" opacity="0.08"/>
+  <text x="600" y="480" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#7C3AED">Code · Community · People</text>
+</svg>

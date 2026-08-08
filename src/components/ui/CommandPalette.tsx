@@ -10,7 +10,7 @@ interface CommandItem {
 interface CommandPaletteProps {
   pages: { label: string; href: string }[];
   projects: { id: string; title: string }[];
-  articles: { id: string; title: string; href: string }[];
+  articles: { id: number; title: string; href: string }[];
 }
 
 export default function CommandPalette({ pages, projects, articles }: CommandPaletteProps) {
@@ -63,6 +63,12 @@ export default function CommandPalette({ pages, projects, articles }: CommandPal
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
   }, [reset]);
+
+  useEffect(() => {
+    const openHandler = () => setOpen(true);
+    window.addEventListener("open-command-palette", openHandler);
+    return () => window.removeEventListener("open-command-palette", openHandler);
+  }, []);
 
   useEffect(() => {
     if (open) {

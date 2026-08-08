@@ -1,6 +1,8 @@
 ---
 import SectionWrapper from "@sections/shared/SectionWrapper.astro";
 import experience from "@data/experience.json";
+
+const sortedExperience = [...experience].sort((a, b) => b.id - a.id);
 ---
 
 <SectionWrapper
@@ -12,9 +14,9 @@ import experience from "@data/experience.json";
   <div class="relative">
     <div class="absolute left-[1.375rem] top-0 h-full w-px bg-paper-200 lg:left-1/2 lg:-translate-x-px" />
 
-    {experience.map((item, index) => (
-      <div class="group relative mb-10 pl-14 last:mb-0 lg:mb-12 lg:w-1/2 lg:pl-0 lg:odd:ml-0 lg:odd:pr-16 lg:even:ml-auto lg:even:pl-16" data-reveal data-reveal-delay={`${index * 100}`}>
-        <div class="absolute left-[0.875rem] top-7 z-10 flex h-4 w-4 items-center justify-center rounded-full border-2 border-accent-600 bg-surface lg:left-auto lg:right-[-0.5rem] lg:odd:right-[-0.5rem] lg:even:left-[-0.5rem] lg:even:right-auto">
+    {sortedExperience.map((item, index) => (
+      <div id={item.slug} class="group relative mb-10 pl-14 last:mb-0 lg:mb-12 lg:w-1/2 lg:pl-0 lg:odd:ml-0 lg:odd:pr-16 lg:even:ml-auto lg:even:pl-16" data-reveal data-reveal-delay={`${index * 100}`}>
+        <div class={`absolute left-[0.875rem] top-7 z-10 flex h-4 w-4 items-center justify-center rounded-full border-2 border-accent-600 bg-surface ${index % 2 === 0 ? "lg:right-auto lg:left-[-0.5rem]" : "lg:left-auto lg:right-[-0.5rem]"}`}>
           <span class="h-2 w-2 rounded-full bg-accent-600" />
         </div>
 

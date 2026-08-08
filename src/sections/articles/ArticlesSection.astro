@@ -1,6 +1,13 @@
 ---
 import SectionWrapper from "@sections/shared/SectionWrapper.astro";
 import articles from "@data/articles.json";
+
+const formatDate = (published: string) =>
+  new Date(`${published}T00:00:00`).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 ---
 
 <SectionWrapper
@@ -12,7 +19,7 @@ import articles from "@data/articles.json";
     <div class="grid gap-8 md:grid-cols-2">
       {articles.slice(0, 2).map((article, index) => (
         <article class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal data-reveal-delay={`${index * 100}`}>
-          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-accent-500">{article.published}</p>
+          <p class="text-sm font-semibold uppercase tracking-[0.24em] text-accent-500">{formatDate(article.published)}</p>
           <h3 class="mt-3 text-xl font-semibold text-ink-950">{article.title}</h3>
           <p class="mt-4 text-base leading-7 text-ink-500">{article.summary}</p>
           <a href={article.href} class="mt-5 inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600">Read more</a>
