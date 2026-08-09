@@ -1,44 +1,295 @@
 [
   {
-    "id": "grow",
+    "id": 1,
+    "slug": "grow",
+    "featured": false,
     "title": "Grow",
     "type": "Learning Platform",
     "summary": "A course delivery platform for teachers and students where learning materials, enrollments, and access controls had to work reliably.",
     "problem": "The product needed a clear structure for courses, modules, enrollments, and role-based access without relying on ad-hoc workflows.",
     "solution": "I helped shape the application around Laravel conventions, defined the core domain model, and implemented the essential user flows for course management and student access.",
-    "architecture": ["Laravel MVC structure", "Database-driven course and enrollment flows", "Role-based access for teachers and students"],
+    "architecture": [
+      "Laravel MVC architecture",
+      "Database-driven course and enrollment workflows",
+      "Role-based access control",
+      "Structured domain relationships"
+    ],
     "stack": ["Laravel", "PHP", "MySQL", "Bootstrap"],
-    "challenges": ["Balancing simplicity with extensibility", "Making content access predictable for different user roles"],
-    "lessons": ["Strong domain boundaries make later iteration much easier", "Solid defaults reduce unnecessary complexity in early-stage apps"],
-    "github": "https://github.com/Darshan-KC/Grow",
-    "demo": "https://github.com/Darshan-KC/Grow"
+    "challenges": [
+      "Balancing simplicity with extensibility",
+      "Making content access predictable for different user roles",
+      "Keeping the course and enrollment workflow easy to maintain"
+    ],
+    "lessons": [
+      "Strong domain boundaries make later iteration much easier",
+      "Solid defaults reduce unnecessary complexity in early-stage applications",
+      "Clear authorization rules are essential when multiple user roles interact with the same resources"
+    ],
+    "github": "",
+    "demo": ""
   },
   {
-    "id": "ams",
+    "id": 2,
+    "slug": "ams",
+    "featured": false,
     "title": "Attendance Management System",
     "type": "Operations Platform",
-    "summary": "A multi-company attendance system designed to help teams track attendance and generate reports with less manual effort.",
-    "problem": "The workflow needed to be operationally simple for admins while flexible enough to support multiple teams and reporting needs.",
-    "solution": "I implemented the core backend modules, reporting flows, and administrative controls with a focus on maintainability and sane data modeling.",
-    "architecture": ["Admin-driven workflow design", "Role-based dashboards", "Structured report generation"],
+    "summary": "A multi-company attendance management platform designed to help organizations track attendance and generate operational reports with less manual effort.",
+    "problem": "The workflow needed to remain operationally simple for administrators while being flexible enough to support multiple companies, teams, attendance workflows, and reporting requirements.",
+    "solution": "I implemented core backend modules, administrative workflows, reporting functionality, and access controls with an emphasis on maintainable data modeling and extensibility.",
+    "architecture": [
+      "Admin-driven workflow design",
+      "Role-based dashboards",
+      "Structured reporting architecture",
+      "Modular backend components",
+      "Database-driven attendance workflows"
+    ],
     "stack": ["Laravel", "PHP", "MySQL", "Bootstrap"],
-    "challenges": ["Designing a system that could grow beyond a single-company use case", "Keeping reporting logic understandable over time"],
-    "lessons": ["Good reporting workflows usually depend on disciplined data design", "Simple interfaces often create the most lasting value"],
-    "github": "https://github.com/Darshan-KC/Attendance-Management-System",
-    "demo": "https://github.com/Darshan-KC/Attendance-Management-System"
+    "challenges": [
+      "Designing a system that could grow beyond a single-company use case",
+      "Keeping reporting logic understandable as requirements expanded",
+      "Maintaining consistency across administrative workflows"
+    ],
+    "lessons": [
+      "Good reporting workflows depend heavily on disciplined data design",
+      "Simple interfaces often create the most lasting operational value",
+      "Modular boundaries make business-heavy applications easier to extend"
+    ],
+    "github": "",
+    "demo": ""
   },
   {
-    "id": "mdpl",
+    "id": 3,
+    "slug": "mdpl",
+    "featured": true,
     "title": "MDPL",
-    "type": "ERP Module Work",
-    "summary": "A large ERP environment where backend reliability and maintainable module boundaries mattered more than flashy interfaces.",
-    "problem": "The system required stable API behavior, maintainable feature work, and careful collaboration across a larger codebase.",
-    "solution": "I contributed to backend modules, API handling, and maintenance work while strengthening consistency in implementation patterns and service-level reliability.",
-    "architecture": ["Modular backend services", "Authenticated API flows", "Background processing and queue-based tasks"],
+    "type": "ERP Platform",
+    "summary": "A large ERP environment where backend reliability, maintainable module boundaries, API consistency, and operational stability were more important than flashy interfaces.",
+    "problem": "The system required stable API behavior, maintainable feature development, background processing, and careful collaboration across a large and continuously evolving codebase.",
+    "solution": "I contributed to backend modules, API handling, maintenance work, and asynchronous processing while improving consistency in implementation patterns and service-level reliability.",
+    "architecture": [
+      "Modular backend architecture",
+      "Authenticated API flows",
+      "Service-oriented module boundaries",
+      "Background processing",
+      "Queue-based tasks"
+    ],
     "stack": ["Laravel", "PHP", "MySQL", "Queues", "JWT"],
-    "challenges": ["Maintaining clarity in a growing enterprise codebase", "Handling operational issues without introducing regressions"],
-    "lessons": ["Maintainability compounds when architectural boundaries are respected", "Reliable systems are built through careful iteration"],
+    "challenges": [
+      "Maintaining clarity in a growing enterprise codebase",
+      "Handling operational issues without introducing regressions",
+      "Keeping module responsibilities clearly separated",
+      "Maintaining reliable API behavior across interconnected features"
+    ],
+    "lessons": [
+      "Maintainability compounds when architectural boundaries are respected",
+      "Reliable systems are built through careful and incremental iteration",
+      "Background processing can significantly improve the responsiveness of business applications"
+    ],
     "github": "https://mdpl.com.my/",
     "demo": "https://mdpl.com.my/"
+  },
+  {
+    "id": 4,
+    "slug": "event-ticketing",
+    "featured": true,
+    "title": "Event Ticket Booking Platform",
+    "type": "Multi-Tenant SaaS Platform",
+    "summary": "A multi-tenant event ticketing SaaS platform where multiple organizers can create and manage events while selling tickets to their customers through an isolated and concurrency-safe booking system.",
+    "problem": "The platform needed to support multiple independent event organizers while ensuring tenant data isolation. At the same time, concurrent users could attempt to reserve the same seat, creating a risk of double booking and inconsistent ticket inventory.",
+    "solution": "I designed the platform around a multi-tenant architecture with tenant-aware authorization and implemented database row-level locking during seat reservation to prevent multiple users from successfully booking the same seat under concurrent requests.",
+    "architecture": [
+      "Multi-tenant SaaS architecture",
+      "Tenant-aware domain and data access",
+      "Policy-based authorization",
+      "Gate-based authorization",
+      "Permission-driven access control",
+      "Database row-level locking",
+      "Transactional seat reservation workflow",
+      "Event and ticket management modules"
+    ],
+    "stack": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Blade",
+      "Bootstrap",
+      "Database Transactions"
+    ],
+    "challenges": [
+      "Ensuring strict isolation between different organizers",
+      "Preventing double booking during concurrent seat reservations",
+      "Designing authorization rules that consistently respected tenant boundaries",
+      "Maintaining a scalable structure for multiple organizers and events"
+    ],
+    "lessons": [
+      "Multi-tenancy requires authorization and data isolation to be treated as first-class architectural concerns",
+      "Application-level checks alone are not enough for concurrency-sensitive operations",
+      "Database locking is essential when multiple requests can compete for the same resource",
+      "Well-defined policies and permissions significantly reduce the risk of cross-tenant data access"
+    ],
+    "github": "",
+    "demo": "https://greatticket.my/"
+  },
+  {
+    "id": 5,
+    "slug": "oms",
+    "featured": false,
+    "title": "Order Management System",
+    "type": "Order Management Platform",
+    "summary": "A modular order management system designed to maintain data consistency and reliability when multiple users or processes attempt to create or modify orders concurrently.",
+    "problem": "Concurrent order operations created a risk of race conditions and inconsistent inventory or order state when multiple requests attempted to modify the same business-critical records at the same time.",
+    "solution": "I implemented database locking around concurrency-sensitive operations and wrapped critical order workflows inside database transactions. This ensured that related changes were committed atomically and that concurrent requests could not leave the system in an inconsistent state.",
+    "architecture": [
+      "Modular architecture",
+      "Transactional order workflows",
+      "Database row-level locking",
+      "Concurrency-safe operations",
+      "Atomic state transitions",
+      "Domain-oriented order modules"
+    ],
+    "stack": ["Laravel", "PHP", "MySQL", "Eloquent", "Database Transactions"],
+    "challenges": [
+      "Preventing race conditions during concurrent order processing",
+      "Maintaining consistent order and inventory state",
+      "Identifying which operations required database locking",
+      "Ensuring failures could safely roll back partial changes"
+    ],
+    "lessons": [
+      "Concurrency should be considered during system design rather than treated as an afterthought",
+      "Database transactions provide an important reliability boundary for multi-step business operations",
+      "Locking should be applied deliberately around shared resources instead of across unnecessarily large sections of a workflow",
+      "Robust order systems require both application-level validation and database-level consistency guarantees"
+    ],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 6,
+    "slug": "chatverse",
+    "featured": true,
+    "title": "Chatverse",
+    "type": "Real-Time Chat Application",
+    "summary": "A real-time messaging application built with Laravel and React, designed around a WhatsApp-style conversation experience with friendship management, conversations, persistent messages, and real-time message delivery.",
+    "problem": "The application needed to provide a responsive real-time messaging experience while maintaining a clean separation between the React client, Laravel API, persistent conversation data, and the real-time communication layer.",
+    "solution": "I built the backend with Laravel and exposed the core authentication, friendship, conversation, and messaging workflows through APIs. The React frontend consumes these APIs while Laravel Reverb handles real-time broadcasting. Laravel Echo and the Pusher-compatible client on React subscribe to broadcast channels so new messages can appear instantly without requiring the user to refresh the page.",
+    "architecture": [
+      "Laravel API backend",
+      "React frontend",
+      "Real-time event broadcasting with Laravel Reverb",
+      "Laravel Echo for client-side event subscriptions",
+      "Pusher-compatible WebSocket client integration",
+      "Friendship management system",
+      "Conversation-based messaging architecture",
+      "Persistent message storage",
+      "Private real-time channels",
+      "Event-driven message delivery"
+    ],
+    "stack": [
+      "Laravel",
+      "PHP",
+      "React",
+      "JavaScript",
+      "Laravel Reverb",
+      "Laravel Echo",
+      "Pusher JS",
+      "MySQL",
+      "Tailwind CSS"
+    ],
+    "features": [
+      "User authentication",
+      "Friend requests and friendship management",
+      "Conversation creation and management",
+      "One-to-one messaging",
+      "Persistent message history",
+      "Real-time message delivery",
+      "Private channel authorization",
+      "WhatsApp-style chat interface",
+      "API-driven frontend architecture"
+    ],
+    "challenges": [
+      "Keeping REST API communication and real-time communication responsibilities clearly separated",
+      "Connecting the React application to Laravel Reverb through Laravel Echo and the Pusher-compatible client",
+      "Ensuring users receive new messages without refreshing the conversation",
+      "Designing friendship and conversation relationships before implementing the messaging workflow",
+      "Managing private channel authorization for conversations",
+      "Keeping the frontend state synchronized with newly broadcast messages"
+    ],
+    "lessons": [
+      "Real-time applications require a different architecture from traditional request-response applications",
+      "WebSocket communication works best when real-time events complement rather than replace the application's API layer",
+      "Designing the friendship and conversation domain before the messaging layer simplifies the overall system",
+      "Private channel authorization is critical when real-time events contain user-specific data",
+      "Event-driven architecture can significantly improve the responsiveness of interactive applications"
+    ],
+    "github": "https://github.com/Darshan-KC/ReLaraWebi",
+    "demo": "https://github.com/Darshan-KC/ReLaraWebi"
+  },
+  {
+    "id": 7,
+    "slug": "hrms",
+    "featured": false,
+    "title": "Human Resource Management System",
+    "type": "HRMS",
+    "summary": "A modular human resource management platform where reporting performance was a major challenge due to expensive data preparation and large datasets.",
+    "problem": "Generating and downloading reports took too long because the reporting workflow performed unnecessary processing, repeatedly handled the same data inside loops, and relied too heavily on model-level processing for large datasets.",
+    "solution": "I optimized the reporting pipeline by moving repeated data preparation outside iterative processing, replacing unnecessary model operations with query builder queries and database joins, and selectively using eager loading where relationships were genuinely required. This reduced unnecessary database and application-level processing during report generation.",
+    "architecture": [
+      "Modular architecture",
+      "Query-driven reporting layer",
+      "Database joins for optimized data retrieval",
+      "Selective eager loading",
+      "Optimized data preparation pipeline",
+      "Separation of report preparation and presentation"
+    ],
+    "stack": ["Laravel", "PHP", "MySQL", "Query Builder", "Eloquent ORM"],
+    "challenges": [
+      "Reducing report generation time for large datasets",
+      "Identifying repeated work inside data-processing loops",
+      "Balancing Eloquent readability with lower-level query performance",
+      "Preventing unnecessary model hydration and relationship processing"
+    ],
+    "lessons": [
+      "Not every database operation needs to go through an ORM model",
+      "Moving invariant work outside loops can have a significant performance impact",
+      "Database joins can be substantially more efficient than repeatedly processing related models",
+      "Performance optimization should focus on the actual bottleneck rather than blindly replacing ORM usage"
+    ],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 8,
+    "slug": "sales-crms",
+    "featured": true,
+    "title": "Sales CRMS",
+    "type": "Sales & CRM Platform",
+    "summary": "A modular sales CRM platform dependent on an external BC API where slow upstream responses significantly affected application performance and user experience.",
+    "problem": "The application depended heavily on an external BC API whose response times were often slow. Because critical application workflows depended on this external data, the overall system frequently experienced long loading times and frustrating user interactions.",
+    "solution": "I introduced a strategic caching layer rather than applying a single expiration time to every cache entry. Different datasets were assigned different TTLs based on how frequently their underlying data changed. I also implemented data prefetching so frequently required information could be retrieved ahead of time and stored in cache, reducing the need for users to wait for repeated external API requests.",
+    "architecture": [
+      "Modular architecture",
+      "External API integration layer",
+      "Strategic multi-TTL caching",
+      "Cache jitter through differentiated expiration times",
+      "Data prefetching",
+      "Cache-first application workflows",
+      "External service abstraction"
+    ],
+    "stack": ["Laravel", "PHP", "MySQL", "BC API", "Caching", "REST APIs"],
+    "challenges": [
+      "Working around slow response times from an external dependency",
+      "Preventing the external API from becoming a bottleneck for every request",
+      "Choosing appropriate cache lifetimes for different datasets",
+      "Keeping cached data useful without unnecessarily serving stale information"
+    ],
+    "lessons": [
+      "Caching is most effective when the strategy reflects the behavior of the underlying data",
+      "A single TTL is rarely appropriate for datasets with different freshness requirements",
+      "Prefetching can move expensive work away from the critical user request path",
+      "External dependencies should be isolated so their performance characteristics do not dictate the entire application's user experience"
+    ],
+    "github": "",
+    "demo": ""
   }
 ]

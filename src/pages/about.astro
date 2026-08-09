@@ -1,17 +1,30 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
+import settings from "@data/settings.json";
+import { breadcrumbSchema, profilePageSchema } from "@lib/schema";
 import AboutSection from "@sections/about/AboutSection.astro";
 import ExperienceSection from "@sections/experience/ExperienceSection.astro";
 import CertificationsSection from "@sections/certifications/CertificationsSection.astro";
 ---
 
 <BaseLayout
-  title={`About · ${profile.name}`}
-  description={profile.about.summary}
+  title={`About Darshan KC · Backend Engineer`}
+  description={`${profile.about.summary} Learn about ${profile.name}'s approach to backend systems, architecture, mentorship, and community work in ${settings.location}.`}
   canonicalPath="/about"
+  image={profile.picture}
+  imageWidth={400}
+  imageHeight={391}
+  type="profile"
+  schema={[
+    profilePageSchema("/about", "About Darshan KC · Backend Engineer"),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about" },
+    ]),
+  ]}
 >
-  <AboutSection />
+  <AboutSection headingLevel="h1" />
   <ExperienceSection />
   <CertificationsSection />
 </BaseLayout>

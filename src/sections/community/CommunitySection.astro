@@ -1,6 +1,12 @@
 ---
 import SectionWrapper from "@sections/shared/SectionWrapper.astro";
 import community from "@data/community.json";
+
+interface Props {
+  headingLevel?: "h1" | "h2";
+}
+
+const { headingLevel = "h2" } = Astro.props;
 ---
 
 <SectionWrapper
@@ -8,32 +14,84 @@ import community from "@data/community.json";
   eyebrow="Community"
   title="Leadership that extends beyond code."
   description="Community work has been one of the strongest ways I have learned to communicate, mentor, and build impact together."
+  headingLevel={headingLevel}
 >
   <div class="grid gap-8 lg:grid-cols-3">
-    {community.map((item, index) => (
-      <article class="group flex flex-col rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg" data-reveal data-reveal-delay={`${index * 100}`}>
-        <div class="flex h-12 w-12 items-center justify-center rounded-[14px] bg-accent-100">
-          {index === 0 && (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-600"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-          )}
-          {index === 1 && (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          )}
-          {index === 2 && (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-600"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-          )}
-        </div>
-        <h3 class="mt-6 text-xl font-semibold text-ink-950">{item.title}</h3>
-        <p class="mt-3 flex-1 text-base leading-7 text-ink-500">{item.summary}</p>
-        <ul class="mt-6 space-y-3">
-          {item.highlights.map((highlight) => (
-            <li class="flex items-start gap-3 text-sm text-ink-600">
-              <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500" />
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
-      </article>
-    ))}
+    {
+      community.map((item, index) => (
+        <article
+          class="group flex flex-col rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
+          data-reveal
+          data-reveal-delay={`${index * 100}`}
+        >
+          <div class="flex h-12 w-12 items-center justify-center rounded-[14px] bg-accent-100">
+            {index === 0 && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent-600"
+              >
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+              </svg>
+            )}
+            {index === 1 && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent-600"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            )}
+            {index === 2 && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent-600"
+              >
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+            )}
+          </div>
+          <h3 class="mt-6 text-xl font-semibold text-ink-950">{item.title}</h3>
+          <p class="mt-3 flex-1 text-base leading-7 text-ink-500">
+            {item.summary}
+          </p>
+          <ul class="mt-6 space-y-3">
+            {item.highlights.map((highlight) => (
+              <li class="flex items-start gap-3 text-sm text-ink-600">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-500" />
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
   </div>
 </SectionWrapper>

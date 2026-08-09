@@ -3,6 +3,12 @@ import SectionWrapper from "@sections/shared/SectionWrapper.astro";
 import settings from "@data/settings.json";
 import social from "@data/social.json";
 import Icon from "@components/ui/Icon.astro";
+
+interface Props {
+  headingLevel?: "h1" | "h2";
+}
+
+const { headingLevel = "h2" } = Astro.props;
 ---
 
 <SectionWrapper
@@ -10,54 +16,166 @@ import Icon from "@components/ui/Icon.astro";
   eyebrow="Contact"
   title="Let’s turn your backend challenges into dependable systems."
   description="If you are building something ambitious and need a careful, experienced backend engineer, I’m available for remote roles and technical leadership work."
+  headingLevel={headingLevel}
 >
   <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
-    <div class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
-      <a href={`mailto:${settings.email}`} class="inline-flex items-center justify-center rounded-[12px] bg-accent-600 px-8 py-4 text-base font-semibold text-button-fg transition hover:bg-accent-700 w-full">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    <div
+      class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
+    >
+      <a
+        href={`mailto:${settings.email}`}
+        class="inline-flex w-full items-center justify-center rounded-[12px] bg-accent-600 px-8 py-4 text-base font-semibold text-button-fg transition hover:bg-accent-700"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mr-3"
+          ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+            d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+        >
         Send an email
       </a>
       <p class="mt-6 text-base leading-7 text-ink-500">
         {settings.location}<br />
         {settings.availability}
       </p>
-      <div class="mt-10 space-y-4 rounded-[20px] border border-paper-200 bg-surface-soft p-6 shadow-sm">
-        {social.map((item) => (
-          <a href={item.href} class="flex items-center gap-3 rounded-[12px] border border-paper-200 bg-paper-50 px-5 py-3 text-sm font-semibold text-ink-800 transition hover:border-accent-300 hover:text-accent-600">
-            <Icon name={item.icon} class="shrink-0 text-accent-500" />
-            {item.label}
-          </a>
-        ))}
+      <div
+        class="mt-10 space-y-4 rounded-[20px] border border-paper-200 bg-surface-soft p-6 shadow-sm"
+      >
+        {
+          social.map((item) => (
+            <a
+              href={item.href}
+              class="hover:border-accent-300 flex items-center gap-3 rounded-[12px] border border-paper-200 bg-paper-50 px-5 py-3 text-sm font-semibold text-ink-800 transition hover:text-accent-600"
+            >
+              <Icon name={item.icon} class="shrink-0 text-accent-500" />
+              {item.label}
+            </a>
+          ))
+        }
       </div>
     </div>
 
-    <form id="form" data-access-key={settings.web3formsAccessKey} data-salt={settings.web3formsSalt} data-min-interval={settings.contactRateLimit.minIntervalSeconds} data-max-per-hour={settings.contactRateLimit.maxPerHour} data-window={settings.contactRateLimit.windowSeconds} novalidate class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+    <form
+      id="form"
+      data-access-key={settings.web3formsAccessKey}
+      data-salt={settings.web3formsSalt}
+      data-min-interval={settings.contactRateLimit.minIntervalSeconds}
+      data-max-per-hour={settings.contactRateLimit.maxPerHour}
+      data-window={settings.contactRateLimit.windowSeconds}
+      novalidate
+      class="rounded-[20px] border border-paper-200 bg-surface p-10 shadow-card transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg"
+    >
       <div class="grid gap-5 sm:grid-cols-2">
         <label class="block text-sm font-medium text-ink-700">
           Name
-          <input id="name" name="name" type="text" autocomplete="name" class="mt-2 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20" />
-          <span class="mt-1.5 hidden text-sm font-medium text-[#dc2626]" data-error="name"></span>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            class="focus:ring-accent-500/20 mt-2 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2"
+          />
+          <span
+            class="mt-1.5 hidden text-sm font-medium text-[#dc2626]"
+            data-error="name"></span>
         </label>
         <label class="block text-sm font-medium text-ink-700">
           Email
-          <input id="email" name="email" type="email" autocomplete="email" class="mt-2 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20" />
-          <span class="mt-1.5 hidden text-sm font-medium text-[#dc2626]" data-error="email"></span>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            class="focus:ring-accent-500/20 mt-2 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2"
+          />
+          <span
+            class="mt-1.5 hidden text-sm font-medium text-[#dc2626]"
+            data-error="email"></span>
         </label>
       </div>
       <label class="mt-5 block text-sm font-medium text-ink-700">
         Message
-        <textarea id="message" name="message" rows="5" class="mt-2 min-h-32 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20"></textarea>
-        <span class="mt-1.5 hidden text-sm font-medium text-[#dc2626]" data-error="message"></span>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          class="focus:ring-accent-500/20 mt-2 min-h-32 w-full rounded-[12px] border border-paper-200 bg-paper-50 px-4 py-3 text-sm text-ink-900 transition focus:border-accent-500 focus:ring-2"
+        ></textarea>
+        <span
+          class="mt-1.5 hidden text-sm font-medium text-[#dc2626]"
+          data-error="message"></span>
       </label>
-      <div id="form-status" role="status" aria-live="polite" class="mt-6 hidden items-start gap-3 rounded-[12px] border border-paper-200 bg-surface-soft px-4 py-3 text-sm font-medium shadow-sm" data-status>
-        <svg data-status-icon-success xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 hidden shrink-0 text-signal-green"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        <svg data-status-icon-error xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 hidden shrink-0 text-[#dc2626]"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <div
+        id="form-status"
+        role="status"
+        aria-live="polite"
+        class="mt-6 hidden items-start gap-3 rounded-[12px] border border-paper-200 bg-surface-soft px-4 py-3 text-sm font-medium shadow-sm"
+        data-status
+      >
+        <svg
+          data-status-icon-success
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mt-0.5 hidden shrink-0 text-signal-green"
+          ><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"
+          ></path></svg
+        >
+        <svg
+          data-status-icon-error
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mt-0.5 hidden shrink-0 text-[#dc2626]"
+          ><path
+            d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+          ></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg
+        >
         <p class="flex-1 leading-6 text-ink-900" data-status-text></p>
-        <button type="button" data-status-dismiss aria-label="Dismiss message" class="-m-1 shrink-0 rounded-[8px] p-1 text-ink-500 transition hover:bg-paper-200 hover:text-ink-900">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <button
+          type="button"
+          data-status-dismiss
+          aria-label="Dismiss message"
+          class="-m-1 shrink-0 rounded-[8px] p-1 text-ink-500 transition hover:bg-paper-200 hover:text-ink-900"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+          >
         </button>
       </div>
-      <button class="mt-6 inline-flex items-center rounded-[12px] bg-ink-950 px-6 py-3 text-sm font-semibold text-button-fg transition hover:bg-ink-800" type="submit">Send message</button>
+      <button
+        class="mt-6 inline-flex items-center rounded-[12px] bg-ink-950 px-6 py-3 text-sm font-semibold text-button-fg transition hover:bg-ink-800"
+        type="submit">Send message</button
+      >
     </form>
   </div>
 </SectionWrapper>
@@ -77,7 +195,9 @@ import Icon from "@components/ui/Icon.astro";
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       const parsed = raw ? JSON.parse(raw) : [];
-      return Array.isArray(parsed) ? parsed.filter((t) => typeof t === "number") : [];
+      return Array.isArray(parsed)
+        ? parsed.filter((t) => typeof t === "number")
+        : [];
     } catch {
       return [];
     }
@@ -85,7 +205,9 @@ import Icon from "@components/ui/Icon.astro";
 
   function recordSubmission() {
     const now = Date.now();
-    const timestamps = getTimestamps().filter((t) => now - t < RATE_LIMIT.windowMs);
+    const timestamps = getTimestamps().filter(
+      (t) => now - t < RATE_LIMIT.windowMs,
+    );
     timestamps.push(now);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(timestamps));
@@ -96,17 +218,25 @@ import Icon from "@components/ui/Icon.astro";
 
   function checkRateLimit(): { allowed: boolean; retryAfterMs: number } {
     const now = Date.now();
-    const timestamps = getTimestamps().filter((t) => now - t < RATE_LIMIT.windowMs);
+    const timestamps = getTimestamps().filter(
+      (t) => now - t < RATE_LIMIT.windowMs,
+    );
 
     if (timestamps.length >= RATE_LIMIT.maxPerHour) {
       const oldest = timestamps[0];
-      return { allowed: false, retryAfterMs: RATE_LIMIT.windowMs - (now - oldest) };
+      return {
+        allowed: false,
+        retryAfterMs: RATE_LIMIT.windowMs - (now - oldest),
+      };
     }
 
     const last = timestamps[timestamps.length - 1];
     const elapsed = last ? now - last : Infinity;
     if (elapsed < RATE_LIMIT.minIntervalMs) {
-      return { allowed: false, retryAfterMs: RATE_LIMIT.minIntervalMs - elapsed };
+      return {
+        allowed: false,
+        retryAfterMs: RATE_LIMIT.minIntervalMs - elapsed,
+      };
     }
 
     return { allowed: true, retryAfterMs: 0 };
@@ -119,15 +249,28 @@ import Icon from "@components/ui/Icon.astro";
     return `${minutes} minute${minutes > 1 ? "s" : ""}`;
   }
 
-  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
-  const status = form?.querySelector('[data-status]') as HTMLDivElement | null;
-  const statusText = form?.querySelector('[data-status-text]') as HTMLParagraphElement | null;
-  const successIcon = form?.querySelector('[data-status-icon-success]') as SVGSVGElement | null;
-  const errorIcon = form?.querySelector('[data-status-icon-error]') as SVGSVGElement | null;
-  const dismissBtn = form?.querySelector('[data-status-dismiss]') as HTMLButtonElement | null;
+  const submitBtn = form?.querySelector(
+    'button[type="submit"]',
+  ) as HTMLButtonElement | null;
+  const status = form?.querySelector("[data-status]") as HTMLDivElement | null;
+  const statusText = form?.querySelector(
+    "[data-status-text]",
+  ) as HTMLParagraphElement | null;
+  const successIcon = form?.querySelector(
+    "[data-status-icon-success]",
+  ) as SVGSVGElement | null;
+  const errorIcon = form?.querySelector(
+    "[data-status-icon-error]",
+  ) as SVGSVGElement | null;
+  const dismissBtn = form?.querySelector(
+    "[data-status-dismiss]",
+  ) as HTMLButtonElement | null;
   let statusTimer: ReturnType<typeof setTimeout> | undefined;
 
-  const rules: Record<string, { validate: (value: string) => boolean; message: string }> = {
+  const rules: Record<
+    string,
+    { validate: (value: string) => boolean; message: string }
+  > = {
     name: {
       validate: (value) => value.trim().length >= 2,
       message: "Please enter your name (at least 2 characters).",
@@ -144,7 +287,8 @@ import Icon from "@components/ui/Icon.astro";
 
   if (form && submitBtn) {
     Object.keys(rules).forEach((name) => {
-      const input = form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
+      const input = form.elements.namedItem(name) as
+        HTMLInputElement | HTMLTextAreaElement;
       input.addEventListener("input", () => {
         if (!input.value.trim()) return;
         clearError(input);
@@ -164,7 +308,7 @@ import Icon from "@components/ui/Icon.astro";
       if (!allowed) {
         showStatus(
           "error",
-          `You've reached the message limit. Please try again in ${formatWait(retryAfterMs)}.`
+          `You've reached the message limit. Please try again in ${formatWait(retryAfterMs)}.`,
         );
         return;
       }
@@ -172,9 +316,20 @@ import Icon from "@components/ui/Icon.astro";
       const accessKey = (form.dataset.accessKey ?? "").split(SALT).join("");
 
       const formData = new FormData(form);
-      formData.set("name", (form.elements.namedItem("name") as HTMLInputElement).value.trim());
-      formData.set("email", (form.elements.namedItem("email") as HTMLInputElement).value.trim());
-      formData.set("message", (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim());
+      formData.set(
+        "name",
+        (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
+      );
+      formData.set(
+        "email",
+        (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
+      );
+      formData.set(
+        "message",
+        (
+          form.elements.namedItem("message") as HTMLTextAreaElement
+        ).value.trim(),
+      );
       formData.append("access_key", accessKey);
 
       const originalText = submitBtn.textContent;
@@ -185,17 +340,23 @@ import Icon from "@components/ui/Icon.astro";
       try {
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          body: formData
+          body: formData,
         });
 
         const data = await response.json();
 
         if (response.ok) {
           recordSubmission();
-          showStatus("success", "Success! Your message has been sent. I'll get back to you soon.");
+          showStatus(
+            "success",
+            "Success! Your message has been sent. I'll get back to you soon.",
+          );
           form.reset();
         } else {
-          showStatus("error", data.message || "Something went wrong. Please try again.");
+          showStatus(
+            "error",
+            data.message || "Something went wrong. Please try again.",
+          );
         }
       } catch {
         showStatus("error", "Something went wrong. Please try again.");
@@ -210,11 +371,18 @@ import Icon from "@components/ui/Icon.astro";
     let firstInvalid: HTMLElement | null = null;
 
     for (const [name, rule] of Object.entries(rules)) {
-      const input = form?.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
-      const errorEl = form?.querySelector(`[data-error="${name}"]`) as HTMLSpanElement;
+      const input = form?.elements.namedItem(name) as
+        HTMLInputElement | HTMLTextAreaElement;
+      const errorEl = form?.querySelector(
+        `[data-error="${name}"]`,
+      ) as HTMLSpanElement;
 
       if (!rule.validate(input.value)) {
-        input.classList.add("border-[#dc2626]", "focus:border-[#dc2626]", "focus:ring-[#dc2626]/20");
+        input.classList.add(
+          "border-[#dc2626]",
+          "focus:border-[#dc2626]",
+          "focus:ring-[#dc2626]/20",
+        );
         input.setAttribute("aria-invalid", "true");
         if (errorEl) {
           errorEl.textContent = rule.message;
@@ -234,9 +402,15 @@ import Icon from "@components/ui/Icon.astro";
   }
 
   function clearError(input: HTMLInputElement | HTMLTextAreaElement) {
-    input.classList.remove("border-[#dc2626]", "focus:border-[#dc2626]", "focus:ring-[#dc2626]/20");
+    input.classList.remove(
+      "border-[#dc2626]",
+      "focus:border-[#dc2626]",
+      "focus:ring-[#dc2626]/20",
+    );
     input.removeAttribute("aria-invalid");
-    const errorEl = form?.querySelector(`[data-error="${input.name}"]`) as HTMLSpanElement | null;
+    const errorEl = form?.querySelector(
+      `[data-error="${input.name}"]`,
+    ) as HTMLSpanElement | null;
     if (errorEl) {
       errorEl.textContent = "";
       errorEl.classList.add("hidden");

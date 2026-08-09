@@ -3,6 +3,7 @@ import type { InferGetStaticPropsType } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
 import articles from "@data/articles.json";
+import { articleSchema, breadcrumbSchema } from "@lib/schema";
 
 export function getStaticPaths() {
   return articles.map((article) => ({
@@ -15,15 +16,13 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { article } = Astro.props as Props;
 
-const canonicalUrl = new URL(`/articles/${article.slug}`, "https://darshanchhetri.com.np").toString();
-const publishedDate = new Date(`${article.published}T00:00:00`).toLocaleDateString("en-US", {
+const publishedDate = new Date(
+  `${article.published}T00:00:00`,
+).toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
   day: "numeric",
 });
-const articleImages = article.image.map((src) =>
-  new URL(src, "https://darshanchhetri.com.np").toString()
-);
 ---
 
 <BaseLayout
@@ -31,55 +30,71 @@ const articleImages = article.image.map((src) =>
   description={article.summary}
   canonicalPath={`/articles/${article.slug}`}
   image={article.image[0]}
+  imageWidth={1024}
+  imageHeight={538}
+  type="article"
+  publishedTime={article.published}
+  modifiedTime={article.published}
+  schema={[
+    articleSchema(article),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Articles", path: "/articles" },
+      { name: article.title, path: `/articles/${article.slug}` },
+    ]),
+  ]}
 >
   <section class="bg-paper-50 py-20">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: article.title,
-      description: article.summary,
-      datePublished: article.published,
-      author: {
-        "@type": "Person",
-        name: profile.name,
-      },
-      image: articleImages,
-      url: canonicalUrl,
-    })} />
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <article data-reveal>
-      <a
-        href="/articles"
-        class="inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600"
-        >← All articles</a
-      >
+      <article data-reveal>
+        <a
+          href="/articles"
+          class="inline-flex items-center text-sm font-semibold text-accent-500 transition hover:text-accent-600"
+          >← All articles</a
+        >
 
-      <header class="mt-8 max-w-5xl">
-        <span class="rounded-full bg-accent-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600">{publishedDate}</span>
-        <h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-5xl">
-          {article.title}
-        </h1>
-        <p class="mt-5 text-lg leading-8 text-ink-500">
-          {article.summary}
-        </p>
-      </header>
+        <header class="mt-8 max-w-5xl">
+          <span
+            class="rounded-full bg-accent-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600"
+            >{publishedDate}</span
+          >
+          <h1
+            class="mt-6 text-4xl font-semibold leading-tight tracking-tight text-ink-950 sm:text-5xl"
+          >
+            {article.title}
+          </h1>
+          <p class="mt-5 text-lg leading-8 text-ink-500">
+            {article.summary}
+          </p>
+        </header>
 
-      {article.image.map((src, index) => (
-        <figure class="mt-10 max-w-5xl" data-reveal>
-          <img src={src} alt={article.title} width="1024" height="538" loading="lazy" class="w-full rounded-[20px] border border-paper-200" />
-          {article.image.length > 1 && (
-            <figcaption class="mt-2 text-center text-sm text-ink-500">Figure {index + 1}</figcaption>
-          )}
-        </figure>
-      ))}
+        {
+          article.image.map((src, index) => (
+            <figure class="mt-10 max-w-5xl" data-reveal>
+              <img
+                src={src}
+                alt={article.title}
+                width="1024"
+                height="538"
+                loading="lazy"
+                class="w-full rounded-[20px] border border-paper-200"
+              />
+              {article.image.length > 1 && (
+                <figcaption class="mt-2 text-center text-sm text-ink-500">
+                  Figure {index + 1}
+                </figcaption>
+              )}
+            </figure>
+          ))
+        }
 
-      <div
-        class="prose prose-lg mt-10 max-w-5xl text-ink-600 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink-950 prose-p:leading-8 prose-a:text-accent-600 prose-strong:text-ink-900 prose-blockquote:border-l-accent-500 prose-blockquote:text-ink-600 prose-li:marker:text-ink-400"
-        data-reveal
-        data-reveal-delay="100"
-        set:html={article.content}
-      ></div>
-    </article>
+        <div
+          class="prose-li:marker:text-ink-400 prose prose-lg mt-10 max-w-5xl text-ink-600 prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-ink-950 prose-p:leading-8 prose-a:text-accent-600 prose-blockquote:border-l-accent-500 prose-blockquote:text-ink-600 prose-strong:text-ink-900"
+          data-reveal
+          data-reveal-delay="100"
+          set:html={article.content}
+        />
+      </article>
     </div>
   </section>
 </BaseLayout>

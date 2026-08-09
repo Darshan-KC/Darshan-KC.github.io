@@ -14,9 +14,30 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  type?: "website" | "article" | "profile";
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, canonicalPath, image } = Astro.props;
+const {
+  title,
+  description,
+  canonicalPath,
+  image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  type,
+  noindex,
+  publishedTime,
+  modifiedTime,
+  schema,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -42,39 +63,75 @@ const { title, description, canonicalPath, image } = Astro.props;
     <meta name="theme-color" content="#fafafa" />
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="apple-touch-icon" href="/images/favicon.png" />
-    <link rel="preload" as="image" href="/images/profile.svg" fetchpriority="high" />
-    <Seo title={title} description={description} canonicalPath={canonicalPath} image={image} />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/profile.svg"
+      fetchpriority="high"
+    />
+    <Seo
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      image={image}
+      imageAlt={imageAlt}
+      imageWidth={imageWidth}
+      imageHeight={imageHeight}
+      type={type}
+      noindex={noindex}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      schema={schema}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Darshan KC Articles"
+      href="/rss.xml"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap"
-      media="print" onload="this.media='all'"
+      media="print"
+      onload="this.media='all'"
     />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap"
+      />
     </noscript>
   </head>
   <body class="antialiased">
     <script is:inline>
-      (function() {
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        var observer = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              var delay = entry.target.getAttribute("data-reveal-delay");
-              if (delay) {
-                setTimeout(function() { entry.target.classList.add("revealed"); }, parseInt(delay));
-              } else {
-                entry.target.classList.add("revealed");
+      (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          return;
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                const delay = entry.target.getAttribute("data-reveal-delay");
+                if (delay) {
+                  setTimeout(function () {
+                    entry.target.classList.add("revealed");
+                  }, parseInt(delay));
+                } else {
+                  entry.target.classList.add("revealed");
+                }
+                observer.unobserve(entry.target);
               }
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { rootMargin: "0px 0px -80px 0px" });
+            });
+          },
+          { rootMargin: "0px 0px -80px 0px" },
+        );
         function observeAll() {
-          document.querySelectorAll("[data-reveal]").forEach(function(el) { observer.observe(el); });
+          document.querySelectorAll("[data-reveal]").forEach(function (el) {
+            observer.observe(el);
+          });
         }
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", observeAll);

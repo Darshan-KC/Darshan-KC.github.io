@@ -11,13 +11,13 @@
   },
   {
     "id": 2,
-    "slug": "current",
-    "type": "Professional",
-    "title": "Mid PHP / Laravel Developer",
-    "organization": "Websoft Technology Nepal",
-    "period": "Jan 2024 — Present",
+    "slug": "cfc-member",
+    "type": "Community",
+    "title": "General Member",
+    "organization": "Code for Change Pokhara",
+    "period": "2022 — 2023",
     "location": "Pokhara, Nepal",
-    "summary": "Building backend services for client and product work, collaborating across delivery teams, and mentoring early-career developers."
+    "summary": "Participated in community activities, technical events, and knowledge-sharing initiatives while engaging with local developers and students."
   },
   {
     "id": 3,
@@ -31,6 +31,16 @@
   },
   {
     "id": 4,
+    "slug": "cfc-pr-lead",
+    "type": "Community",
+    "title": "Public Relations Lead",
+    "organization": "Code for Change Pokhara",
+    "period": "2023 — 2024",
+    "location": "Pokhara, Nepal",
+    "summary": "Organized technical workshops, bootcamps, and community events while establishing partnerships with local companies and developer communities. Mentored Laravel and Python workshops for university students and beginner developers, and promoted technical education through community engagement and knowledge sharing."
+  },
+  {
+    "id": 5,
     "slug": "python",
     "type": "Community",
     "title": "Python Workshop Instructor",
@@ -40,7 +50,7 @@
     "summary": "Facilitated an introductory workshop on Python fundamentals and object-oriented programming concepts."
   },
   {
-    "id": 5,
+    "id": 6,
     "slug": "hackathon",
     "type": "Community",
     "title": "Hackathon Mentor",
@@ -48,5 +58,35 @@
     "period": "Nov 2025",
     "location": "Pokhara, Nepal",
     "summary": "Guided participants in debugging, architecture decisions, and turning ideas into working prototypes."
+  },
+  {
+    "id": 7,
+    "slug": "cfc-advisor",
+    "type": "Community",
+    "title": "Advisor",
+    "organization": "Code for Change Pokhara",
+    "period": "2024 — 2025",
+    "location": "Pokhara, Nepal",
+    "summary": "Supported the community with technical guidance, mentorship, and organizational advice while helping newer members and leaders plan and execute technical initiatives."
+  },
+  {
+    "id": 8,
+    "slug": "websoft",
+    "type": "Professional",
+    "title": "Mid-Level Laravel Developer",
+    "organization": "Websoft Technology Nepal",
+    "period": "Jan 2024 — Apr 2026",
+    "location": "Pokhara, Nepal",
+    "summary": "Developed and maintained Laravel applications across client and product work, contributing to backend architecture, API development, database-driven workflows, and maintainable business features while collaborating across delivery teams and mentoring early-career developers."
+  },
+  {
+    "id": 9,
+    "slug": "bidhee",
+    "type": "Professional",
+    "title": "Backend Engineer",
+    "organization": "Bidhee Pvt. Ltd.",
+    "period": "May 2026 — Present",
+    "location": "Kathmandu, Nepal",
+    "summary": "Building modular backend systems with Laravel and PHP, focusing on performance, concurrency, data consistency, API integrations, caching, and scalable business workflows across HRMS, Sales CRMS, and other enterprise applications."
   }
 ]

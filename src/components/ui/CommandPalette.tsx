@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, useCallback, type KeyboardEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  type KeyboardEvent,
+} from "react";
 
 interface CommandItem {
   label: string;
@@ -9,11 +15,15 @@ interface CommandItem {
 
 interface CommandPaletteProps {
   pages: { label: string; href: string }[];
-  projects: { id: string; title: string }[];
+  projects: { id: number; slug: string; title: string }[];
   articles: { id: number; title: string; href: string }[];
 }
 
-export default function CommandPalette({ pages, projects, articles }: CommandPaletteProps) {
+export default function CommandPalette({
+  pages,
+  projects,
+  articles,
+}: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -24,7 +34,7 @@ export default function CommandPalette({ pages, projects, articles }: CommandPal
     ...pages.map((p) => ({ label: p.label, href: p.href, group: "Pages" })),
     ...projects.map((p) => ({
       label: p.title,
-      href: `/case-studies/${p.id}`,
+      href: `/case-studies/${p.slug}`,
       group: "Case Studies",
     })),
     ...articles.map((a) => ({
@@ -67,7 +77,8 @@ export default function CommandPalette({ pages, projects, articles }: CommandPal
   useEffect(() => {
     const openHandler = () => setOpen(true);
     window.addEventListener("open-command-palette", openHandler);
-    return () => window.removeEventListener("open-command-palette", openHandler);
+    return () =>
+      window.removeEventListener("open-command-palette", openHandler);
   }, []);
 
   useEffect(() => {
@@ -95,11 +106,14 @@ export default function CommandPalette({ pages, projects, articles }: CommandPal
     }
   };
 
-  const grouped = filtered.reduce<Record<string, CommandItem[]>>((acc, item) => {
-    if (!acc[item.group]) acc[item.group] = [];
-    acc[item.group].push(item);
-    return acc;
-  }, {});
+  const grouped = filtered.reduce<Record<string, CommandItem[]>>(
+    (acc, item) => {
+      if (!acc[item.group]) acc[item.group] = [];
+      acc[item.group].push(item);
+      return acc;
+    },
+    {},
+  );
 
   let globalIndex = 0;
 
@@ -107,9 +121,11 @@ export default function CommandPalette({ pages, projects, articles }: CommandPal
     <>
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center bg-ink-950/50 pt-[15vh] backdrop-blur-sm"
+          className="bg-ink-950/50 fixed inset-0 z-50 flex items-start justify-center pt-[15vh] backdrop-blur-sm"
           onClick={reset}
-          onKeyDown={(e) => { if (e.key === "Escape") reset(); }}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") reset();
+          }}
           role="presentation"
         >
           <div
@@ -153,7 +169,9 @@ export default function CommandPalette({ pages, projects, articles }: CommandPal
               className="max-h-80 overflow-y-auto p-2"
               role="listbox"
               tabIndex={-1}
-              aria-activedescendant={filtered[activeIndex] ? `cmd-item-${activeIndex}` : undefined}
+              aria-activedescendant={
+                filtered[activeIndex] ? `cmd-item-${activeIndex}` : undefined
+              }
             >
               {filtered.length === 0 && (
                 <p className="px-3 py-8 text-center text-sm text-ink-500">

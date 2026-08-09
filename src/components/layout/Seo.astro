@@ -6,62 +6,106 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  type?: "website" | "article" | "profile";
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title = siteConfig.title,
   description = siteConfig.description,
-  canonicalPath = "/",
+  canonicalPath,
   image,
+  imageAlt = siteConfig.ogImageAlt,
+  imageWidth = siteConfig.ogImageWidth,
+  imageHeight = siteConfig.ogImageHeight,
+  type = "website",
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+  schema,
 } = Astro.props;
 
-const canonicalUrl = new URL(canonicalPath, siteConfig.url).toString();
-const ogImage = image ? new URL(image, siteConfig.url).toString() : new URL(siteConfig.ogImage, siteConfig.url).toString();
+const canonicalUrl = canonicalPath
+  ? new URL(canonicalPath, siteConfig.url).toString()
+  : null;
+
+const ogImage = new URL(image || siteConfig.ogImage, siteConfig.url).toString();
+
+const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
+
+const graph = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 ---
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonicalUrl} />
+<meta name="author" content={siteConfig.author} />
+<meta name="robots" content={robotsContent} />
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
 <meta property="og:site_name" content={siteConfig.name} />
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={canonicalUrl} />
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 <meta property="og:locale" content={siteConfig.locale} />
-<meta property="og:image" content={ogImage} />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+{
+  ogImage && (
+    <>
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content={String(imageWidth)} />
+      <meta property="og:image:height" content={String(imageHeight)} />
+      <meta property="og:image:alt" content={imageAlt} />
+    </>
+  )
+}
+{
+  type === "article" && publishedTime && (
+    <meta property="article:published_time" content={publishedTime} />
+  )
+}
+{
+  type === "article" && (modifiedTime || publishedTime) && (
+    <meta
+      property="article:modified_time"
+      content={modifiedTime || publishedTime}
+    />
+  )
+}
+{
+  type === "article" && (
+    <meta property="article:author" content={siteConfig.url} />
+  )
+}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
-<meta name="twitter:site" content={siteConfig.socialHandle} />
-<meta name="twitter:creator" content={siteConfig.socialHandle} />
+{ogImage && <meta name="twitter:image" content={ogImage} />}
+<meta name="twitter:image:alt" content={imageAlt} />
+{
+  siteConfig.twitterHandle && (
+    <>
+      <meta name="twitter:site" content={siteConfig.twitterHandle} />
+      <meta name="twitter:creator" content={siteConfig.twitterHandle} />
+    </>
+  )
+}
 
-<script
-  is:inline
-  type="application/ld+json"
-  set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteConfig.name,
-    url: siteConfig.url,
-    jobTitle: "Backend Engineer",
-    knowsAbout: [
-      "Laravel",
-      "PHP",
-      "MySQL",
-      "REST APIs",
-      "Redis",
-      "System Design",
-      "Software Architecture",
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "Nepal",
-    },
-    image: ogImage,
-  })}
-/>
+{
+  graph.length > 0 && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": graph,
+      })}
+    />
+  )
+}

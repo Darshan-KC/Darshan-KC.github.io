@@ -5,20 +5,22 @@
 Professional portfolio and case studies for **Darshan KC**, built as a fully static site.  
 Live at **[darshanchhetri.com.np](https://darshanchhetri.com.np)**.
 
+> **SEO:** Everything related to search optimization — meta tags, structured data, sitemap, robots, and the RSS feed — is documented in [`SEO.md`](./SEO.md).
+
 ---
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | [Astro](https://astro.build) 7 — static site generation |
-| Language | TypeScript (strict mode) |
-| Styling | Tailwind CSS 3.4 + `@tailwindcss/typography` |
-| Interactivity | React 19 islands (Command Palette, Theme Toggle) |
-| Icons | Lucide React + hand-rolled inline SVGs |
-| Data Layer | Plain JSON (`src/data/`) |
-| Deployment | GitHub Pages via GitHub Actions |
-| Fonts | Inter, Manrope, JetBrains Mono |
+| Layer         | Technology                                              |
+| ------------- | ------------------------------------------------------- |
+| Framework     | [Astro](https://astro.build) 7 — static site generation |
+| Language      | TypeScript (strict mode)                                |
+| Styling       | Tailwind CSS 3.4 + `@tailwindcss/typography`            |
+| Interactivity | React 19 islands (Command Palette, Theme Toggle)        |
+| Icons         | Lucide React + hand-rolled inline SVGs                  |
+| Data Layer    | Plain JSON (`src/data/`)                                |
+| Deployment    | GitHub Pages via GitHub Actions                         |
+| Fonts         | Inter, Manrope, JetBrains Mono                          |
 
 ## Features
 

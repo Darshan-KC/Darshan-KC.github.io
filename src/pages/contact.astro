@@ -1,13 +1,25 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
+import { breadcrumbSchema, contactPageSchema } from "@lib/schema";
 import ContactSection from "@sections/contact/ContactSection.astro";
 ---
 
 <BaseLayout
-  title={`Contact · ${profile.name}`}
-  description="Get in touch about backend roles, technical leadership, and collaboration."
+  title={`Contact Darshan KC · Backend Engineer`}
+  description="Get in touch with Darshan KC about backend roles, Laravel projects, technical leadership, and collaboration opportunities."
   canonicalPath="/contact"
+  image={profile.picture}
+  imageWidth={400}
+  imageHeight={391}
+  type="website"
+  schema={[
+    contactPageSchema("/contact", "Contact Darshan KC · Backend Engineer"),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+    ]),
+  ]}
 >
-  <ContactSection />
+  <ContactSection headingLevel="h1" />
 </BaseLayout>

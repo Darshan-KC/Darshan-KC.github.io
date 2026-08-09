@@ -7,7 +7,12 @@ const site = "https://darshanchhetri.com.np";
 export default defineConfig({
   site,
   output: "static",
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes("/404"),
+    }),
+  ],
   build: {
     assets: "_assets",
   },

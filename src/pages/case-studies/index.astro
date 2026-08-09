@@ -1,13 +1,28 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
+import { breadcrumbSchema, collectionPageSchema } from "@lib/schema";
 import ProjectsSection from "@sections/projects/ProjectsSection.astro";
 ---
 
 <BaseLayout
-  title={`Engineering Case Studies · ${profile.name}`}
-  description="Engineering case studies focused on problem framing, architecture, trade-offs, and lessons learned."
+  title={`Engineering Case Studies · ${profile.name} · Backend`}
+  description="Engineering case studies by Darshan KC focused on problem framing, architecture, trade-offs, concurrency, and lessons learned across Laravel and PHP backend projects."
   canonicalPath="/case-studies"
+  image={profile.picture}
+  imageWidth={400}
+  imageHeight={391}
+  type="website"
+  schema={[
+    collectionPageSchema(
+      "/case-studies",
+      "Engineering Case Studies · Darshan KC",
+    ),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Case Studies", path: "/case-studies" },
+    ]),
+  ]}
 >
-  <ProjectsSection />
+  <ProjectsSection headingLevel="h1" />
 </BaseLayout>

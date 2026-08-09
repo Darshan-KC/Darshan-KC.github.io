@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
+import { siteConfig } from "@lib/site";
+import { personSchema, webSiteSchema } from "@lib/schema";
 import HeroSection from "@sections/hero/HeroSection.astro";
 import AboutSection from "@sections/about/AboutSection.astro";
 import ProjectsSection from "@sections/projects/ProjectsSection.astro";
@@ -13,12 +15,18 @@ import ContactSection from "@sections/contact/ContactSection.astro";
 ---
 
 <BaseLayout
-  title={profile.name}
-  description={profile.heroSubtitle}
+  title={siteConfig.title}
+  description={siteConfig.description}
   canonicalPath="/"
+  image={profile.picture}
+  imageAlt={siteConfig.ogImageAlt}
+  imageWidth={siteConfig.ogImageWidth}
+  imageHeight={siteConfig.ogImageHeight}
+  type="website"
+  schema={[webSiteSchema(), personSchema()]}
 >
   <HeroSection />
-  <ProjectsSection />
+  <ProjectsSection featuredOnly />
   <AboutSection />
   <ExperienceSection />
   <SkillsSection />

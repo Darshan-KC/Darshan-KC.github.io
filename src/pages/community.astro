@@ -1,13 +1,25 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
+import { breadcrumbSchema, collectionPageSchema } from "@lib/schema";
 import CommunitySection from "@sections/community/CommunitySection.astro";
 ---
 
 <BaseLayout
-  title={`Community · ${profile.name}`}
-  description="Workshops, mentoring, and community leadership in the developer ecosystem."
+  title={`Community Work · ${profile.name}`}
+  description="Workshops, mentoring, and community leadership by Darshan KC in the developer ecosystem — Python and Laravel workshops, hackathon mentoring, and more."
   canonicalPath="/community"
+  image={profile.picture}
+  imageWidth={400}
+  imageHeight={391}
+  type="website"
+  schema={[
+    collectionPageSchema("/community", "Community Work · Darshan KC"),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Community", path: "/community" },
+    ]),
+  ]}
 >
-  <CommunitySection />
+  <CommunitySection headingLevel="h1" />
 </BaseLayout>

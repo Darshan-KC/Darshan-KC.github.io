@@ -1,13 +1,25 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import profile from "@data/profile.json";
+import { breadcrumbSchema, webPageSchema } from "@lib/schema";
 import ResumeSection from "@sections/resume/ResumeSection.astro";
 ---
 
 <BaseLayout
-  title={`Resume · ${profile.name}`}
-  description="Download a concise professional resume for hiring teams."
+  title={`Resume · ${profile.name} · Backend Engineer`}
+  description="Download Darshan KC's resume — a concise overview of backend engineering experience, technical leadership, and community work."
   canonicalPath="/resume"
+  image={profile.picture}
+  imageWidth={400}
+  imageHeight={391}
+  type="website"
+  schema={[
+    webPageSchema("/resume", "Resume · Darshan KC"),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Resume", path: "/resume" },
+    ]),
+  ]}
 >
-  <ResumeSection />
+  <ResumeSection headingLevel="h1" />
 </BaseLayout>

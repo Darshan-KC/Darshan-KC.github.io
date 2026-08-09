@@ -23,7 +23,9 @@ export interface NavigationItem {
 }
 
 export interface Project {
-  id: string;
+  id: number;
+  slug: string;
+  featured?: boolean;
   title: string;
   type: string;
   summary: string;
