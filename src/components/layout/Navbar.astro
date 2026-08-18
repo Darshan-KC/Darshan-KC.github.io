@@ -34,7 +34,26 @@ const isActive = (href: string) => {
     <div class="flex items-center gap-3">
       <nav
       aria-label="Primary navigation"
-      class="hidden items-center gap-6 text-sm text-ink-600 sm:flex"
+      class="hidden items-center gap-4 text-xs font-medium text-ink-600 sm:flex md:hidden"
+    >
+      {
+        navigation.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? "page" : undefined}
+            class={`whitespace-nowrap transition hover:text-ink-950 ${
+              isActive(item.href) ? "font-semibold text-ink-950" : ""
+            }`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <nav
+      aria-label="Primary navigation"
+      class="hidden items-center gap-6 text-sm text-ink-600 md:flex"
     >
       {
         navigation.map((item) => (
@@ -71,14 +90,14 @@ const isActive = (href: string) => {
           <circle cx="11" cy="11" r="8"></circle>
           <path d="m21 21-4.3-4.3"></path>
         </svg>
-        <span class="hidden sm:inline">Search</span>
-        <kbd class="hidden rounded-md border border-paper-200 bg-surface px-2 py-0.5 text-xs text-ink-500 sm:inline-block">⌘K</kbd>
+        <span class="hidden md:inline">Search</span>
+        <kbd class="hidden rounded-md border border-paper-200 bg-surface px-2 py-0.5 text-xs text-ink-500 md:inline-block">⌘K</kbd>
       </button>
 
       <ThemeToggle client:idle />
 
       <details
-      class="group relative sm:hidden [&[open]_.nav-toggle-open]:hidden [&[open]_.nav-toggle-close]:block"
+      class="group relative md:hidden [&[open]_.nav-toggle-open]:hidden [&[open]_.nav-toggle-close]:block"
     >
       <summary
         class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-[12px] border border-paper-200 text-ink-700 transition hover:text-ink-950 [&::-webkit-details-marker]:hidden"

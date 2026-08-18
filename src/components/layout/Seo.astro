@@ -47,6 +47,7 @@ const graph = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 <meta name="author" content={siteConfig.author} />
 <meta name="robots" content={robotsContent} />
 {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+<link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} — Articles`} href={new URL("/rss.xml", siteConfig.url).toString()} />
 
 <meta property="og:site_name" content={siteConfig.name} />
 <meta property="og:type" content={type} />

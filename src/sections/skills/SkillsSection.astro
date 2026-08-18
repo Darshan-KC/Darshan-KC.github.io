@@ -3,6 +3,12 @@ import SectionWrapper from "@sections/shared/SectionWrapper.astro";
 import skills from "@data/skills.json";
 import Icon from "@components/ui/Icon.astro";
 
+interface Props {
+  headingLevel?: "h1" | "h2";
+}
+
+const { headingLevel = "h2" } = Astro.props;
+
 const categoryIcons: Record<string, string> = {
   Backend: "Server",
   Architecture: "FileText",
@@ -18,6 +24,7 @@ const categoryIcons: Record<string, string> = {
   eyebrow="Skills"
   title="A practical toolkit for building dependable systems."
   description="My focus has remained on the skills that help teams ship well and maintain quality over time."
+  headingLevel={headingLevel}
 >
   <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
     {skills.categories.map((category, index) => (

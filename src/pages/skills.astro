@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import profile from "@data/profile.json";
+import { breadcrumbSchema, collectionPageSchema } from "@lib/schema";
+import SkillsSection from "@sections/skills/SkillsSection.astro";
+---
+
+<BaseLayout
+  title={`Skills · ${profile.name}`}
+  description="Technical skills and expertise of Darshan KC — Laravel, PHP, system design, databases, DevOps, security, and the tools behind dependable backend systems."
+  canonicalPath="/skills"
+  image={profile.picture}
+  imageWidth={400}
+  imageHeight={391}
+  type="website"
+  schema={[
+    collectionPageSchema("/skills", "Skills · Darshan KC"),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Skills", path: "/skills" },
+    ]),
+  ]}
+>
+  <SkillsSection headingLevel="h1" />
+</BaseLayout>

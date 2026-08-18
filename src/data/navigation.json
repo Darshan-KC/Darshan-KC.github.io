@@ -1,5 +1,6 @@
 [
   { "label": "About", "href": "/about", "icon": "User" },
+  { "label": "Skills", "href": "/skills", "icon": "Code" },
   { "label": "Case Studies", "href": "/case-studies", "icon": "Folder" },
   { "label": "Articles", "href": "/articles", "icon": "FileText" },
   { "label": "Community", "href": "/community", "icon": "Users" },
