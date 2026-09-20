@@ -2,15 +2,15 @@
   "categories": [
     {
       "name": "Backend",
-      "items": ["Laravel", "PHP", "REST APIs", "Authentication", "Queues", "WebSockets"]
+      "items": ["Laravel", "PHP", "Python", "Django", "REST APIs", "Authentication", "Queues", "WebSockets"]
     },
     {
       "name": "Architecture",
-      "items": ["System Design", "Clean Architecture", "Service Boundaries", "Code Review", "Documentation"]
+      "items": ["System Design", "MVC Architecture", "Modular Architecture", "Clean Architecture", "Service Boundaries", "Code Review", "Documentation"]
     },
     {
       "name": "Database",
-      "items": ["MySQL", "Redis", "Query Optimization", "Schema Design"]
+      "items": ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Query Optimization", "Schema Design"]
     },
     {
       "name": "DevOps",
