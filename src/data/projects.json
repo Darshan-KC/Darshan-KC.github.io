@@ -291,5 +291,93 @@
     ],
     "github": "",
     "demo": ""
+  },
+  {
+    "id": 9,
+    "slug": "accounting-system",
+    "featured": false,
+    "title": "Accounting System",
+    "type": "Accounting & Financial Management Platform",
+    "summary": "A Laravel-based accounting application for managing financial records, organizing chart-of-accounts hierarchies, and supporting structured transaction workflows.",
+    "problem": "Accounting operations depend on a well-organized chart of accounts and consistent posting rules. Disconnected workflows for purchase transactions, supplier payments, ledger relationships, and journal entries can increase manual effort and create opportunities for inconsistencies.",
+    "solution": "Developed and enhanced accounting modules covering hierarchical chart-of-accounts management, ledger configuration, purchase invoice processing, and payment voucher workflows. The implementation focuses on connecting business transactions with appropriate ledger accounts and keeping financial workflows organized and maintainable.",
+    "architecture": [
+      "Modular Laravel application architecture",
+      "Hierarchical chart-of-accounts management",
+      "Ledger group, subgroup, and ledger master relationships",
+      "Service and repository patterns where applicable",
+      "Purchase invoice and payment voucher workflows",
+      "Database-driven financial transaction management",
+      "Structured validation and financial data handling"
+    ],
+    "stack": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Blade",
+      "Bootstrap",
+      "JavaScript",
+      "Eloquent ORM"
+    ],
+    "challenges": [
+      "Designing a flexible chart-of-accounts hierarchy",
+      "Connecting operational transactions to the appropriate accounting ledgers",
+      "Structuring purchase invoice and payment workflows",
+      "Maintaining consistency between transaction records and accounting entries",
+      "Organizing accounting logic into maintainable application components"
+    ],
+    "lessons": [
+      "Financial applications require explicit and consistent accounting rules",
+      "A well-designed chart of accounts supports reliable financial reporting",
+      "Transaction workflows should connect operational documents with accounting entries predictably",
+      "Modular architecture makes accounting functionality easier to extend and maintain"
+    ],
+    "github": "",
+    "demo": ""
+  },
+  {
+    "id": 10,
+    "slug": "construction-erp",
+    "featured": false,
+    "title": "Construction ERP System",
+    "type": "Construction Management & Enterprise Resource Planning Platform",
+    "summary": "A modular Construction ERP application that brings together construction business workflows across procurement, vehicle and bank records, insurance, tender management, project administration, billing, payments, accounting, and document management.",
+    "problem": "Construction businesses coordinate interconnected processes such as procurement, project execution, vehicle operations, tender documentation, billing, payments, and administration. When these activities are handled through disconnected workflows, information can become fragmented and it becomes harder to maintain visibility across projects and financial records.",
+    "solution": "Contributed to the development and maintenance of a Laravel-based Construction ERP application. Its business functions are organized into dedicated modules for procurement, tender and project management, billing, payments, accounting, and document handling, helping keep related operational information structured as requirements evolve.",
+    "architecture": [
+      "Modular Laravel application architecture",
+      "Separated business modules and responsibilities",
+      "Structured database relationships between business entities",
+      "Controller, service, and repository patterns where applicable",
+      "Role-based access control where implemented",
+      "Integrated operational and financial workflows",
+      "Centralized document and organizational information management"
+    ],
+    "stack": [
+      "Laravel",
+      "PHP",
+      "MySQL",
+      "Blade",
+      "Bootstrap",
+      "JavaScript",
+      "Eloquent ORM"
+    ],
+    "challenges": [
+      "Maintaining clear module boundaries in a large business application",
+      "Managing relationships between projects, procurement, billing, payments, and accounting",
+      "Keeping business records consistent across connected workflows",
+      "Organizing construction-related documents and operational information",
+      "Extending existing functionality while minimizing regressions",
+      "Maintaining application code as business requirements evolve"
+    ],
+    "lessons": [
+      "Construction ERP systems require coordination between operational, project, and financial workflows",
+      "Modular architecture helps organize complex business requirements into maintainable components",
+      "Consistent data relationships matter when multiple modules depend on shared business records",
+      "Centralized document management helps organize information associated with business operations",
+      "Incremental development and regression-aware maintenance are important for established enterprise applications"
+    ],
+    "github": "",
+    "demo": ""
   }
 ]

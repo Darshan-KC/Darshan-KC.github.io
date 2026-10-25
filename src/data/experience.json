@@ -61,16 +61,26 @@
   },
   {
     "id": 7,
+    "slug": "ideathon",
+    "type": "Community",
+    "title": "CodeFest 2026 – +2 Level Virtual Ideathon Judge",
+    "organization": "Codefest",
+    "period": "Aug 2026",
+    "location": "Nepal",
+    "summary": "Evaluated and provided feedback on innovative project ideas, assessing their feasibility, impact, and potential for implementation."
+  },
+  {
+    "id": 8,
     "slug": "cfc-advisor",
     "type": "Community",
     "title": "Advisor",
     "organization": "Code for Change Pokhara",
-    "period": "2024 — 2025",
+    "period": "2024 — Present",
     "location": "Pokhara, Nepal",
     "summary": "Supported the community with technical guidance, mentorship, and organizational advice while helping newer members and leaders plan and execute technical initiatives."
   },
   {
-    "id": 8,
+    "id": 9,
     "slug": "websoft",
     "type": "Professional",
     "title": "Mid-Level Laravel Developer",
@@ -80,7 +90,7 @@
     "summary": "Developed and maintained Laravel applications across client and product work, contributing to backend architecture, API development, database-driven workflows, and maintainable business features while collaborating across delivery teams and mentoring early-career developers."
   },
   {
-    "id": 9,
+    "id": 10,
     "slug": "bidhee",
     "type": "Professional",
     "title": "Backend Engineer",
